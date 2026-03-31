@@ -1,0 +1,613 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  category: string;
+  image: string;
+  content: string;
+}
+
+export function getStaticPaths() {
+  const blogPosts = [
+  {
+    slug: "how-to-get-more-reviews-anchorage",
+    title: "How to Get More Reviews for Your Local Business in Anchorage",
+    excerpt: "Practical strategies for Anchorage businesses to build customer trust and stand out, even during harsh winters and seasonal slowdowns.",
+    date: "January 20, 2026",
+    readTime: "8 min read",
+    category: "Marketing",
+    image: "/images/blog/anchorage-business.jpg",
+    content: `
+      <h2>Why Reviews Matter More in Anchorage</h2>
+      <p>In a city where word-of-mouth has always been king, online reviews are the modern equivalent of a neighbor's recommendation. Anchorage residents rely heavily on Google reviews before choosing a plumber, electrician, or restaurant--especially during the long winter months when people are doing their research from home. A business with 50+ recent five-star reviews will consistently outperform competitors with fewer or older reviews in the local map pack.</p>
+      <p>The challenge for Anchorage businesses is unique. Seasonal slowdowns mean fewer transactions during certain months, and harsh weather can reduce foot traffic. That makes every customer interaction count double. You need a system that captures reviews from every happy customer, not just the occasional one who remembers to leave feedback.</p>
+
+      <h2>Ask at the Right Moment</h2>
+      <p>Timing is everything. The best time to ask for a review is immediately after delivering a great experience--when the customer is still feeling the positive emotion. For service businesses, this means sending a review request within an hour of completing the job. For retail, it might be a follow-up text the same evening. Studies show that review requests sent within 24 hours get 3x more responses than those sent a week later.</p>
+      <p>Use a simple, direct ask. Something like "We'd love to hear how we did--would you mind leaving us a quick Google review?" paired with a direct link removes all friction. Most customers are happy to help; they just need a gentle nudge and a convenient path to do it.</p>
+
+      <h2>Make It Effortless with Automation</h2>
+      <p>The biggest mistake local businesses make is relying on memory. You finish a job, you're tired, you move on to the next one--and the review request never gets sent. Automation solves this completely. With a tool like Vortex, every completed job triggers an automatic review request via text message. The customer gets a friendly message with a direct link to your Google review page. No extra work from you or your team.</p>
+
+      <h2>Respond to Every Review</h2>
+      <p>Responding to reviews--both positive and negative--signals to Google and future customers that you care. Thank your reviewers by name, mention the specific service you provided, and keep it genuine. For negative reviews, respond professionally, acknowledge the concern, and offer to make it right. This turns a potential reputation hit into a demonstration of your customer service values.</p>
+
+      <h2>Build a Review Culture</h2>
+      <p>The businesses that dominate Anchorage's local search results have made reviews part of their DNA. They train every team member to deliver review-worthy service, they celebrate positive feedback internally, and they use automation to ensure no happy customer slips through the cracks. If you want to join them, the first step is simple: set up a system that does the asking for you. Vortex was built specifically for Alaska businesses like yours--<a href="/contact">get started here</a> and see the difference in your first week.</p>
+    `,
+  },
+  {
+    slug: "starting-lawncare-business-alaska",
+    title: "Starting and Growing a Lawncare Business in Alaska",
+    excerpt: "A step-by-step guide for aspiring lawn care entrepreneurs in Fairbanks and beyond, including local marketing and building your reputation.",
+    date: "January 18, 2026",
+    readTime: "10 min read",
+    category: "Business Growth",
+    image: "/images/blog/lawncare-alaska.jpg",
+    content: `
+      <h2>The Alaska Lawn Care Opportunity</h2>
+      <p>Alaska's growing season is short but intense. From late May through September, lawns explode with growth thanks to long daylight hours--sometimes 20+ hours of sunlight. This creates massive demand for lawn care services in a compressed window. Homeowners in Fairbanks, Anchorage, and the Mat-Su Valley need reliable pros who can keep up with the rapid growth cycle. The barrier to entry is relatively low, but the businesses that thrive are the ones that build trust and a strong reputation fast.</p>
+      <p>Starting a lawn care business in Alaska means understanding your unique market. You are not competing with national franchises the same way you would in the Lower 48. Alaskans prefer to hire local, and they place enormous value on reliability. If you show up when you say you will and do quality work, referrals will follow.</p>
+
+      <h2>Getting Your First Customers</h2>
+      <p>Start with your immediate network--neighbors, friends, local Facebook groups. Post in Fairbanks and Anchorage community groups offering introductory pricing for your first 10 customers. Create a simple Google Business Profile immediately, even before you have reviews. This gets you visible in local search results and Google Maps, which is where most homeowners start their search for "lawn care near me."</p>
+      <p>Door-to-door flyers still work surprisingly well in Alaska neighborhoods, especially in established residential areas. Include a QR code that links to your Google Business Profile so potential customers can see your reviews and contact you instantly.</p>
+
+      <h2>Building Your Reputation Quickly</h2>
+      <p>In a short season, you need to accumulate reviews fast. After every job, send a quick text thanking the customer and asking for a review. Better yet, automate this process so it happens without you thinking about it. A lawn care business that goes from zero to 30 five-star reviews in their first summer will dominate local search the following year. That head start compounds--more reviews mean more visibility, which means more customers, which means more reviews.</p>
+
+      <h2>Winterizing Your Business</h2>
+      <p>Smart Alaska lawn care operators do not shut down for seven months. Pivot to snow removal, holiday light installation, or property maintenance during the off-season. This keeps revenue flowing and keeps your brand top-of-mind with existing customers. When spring rolls around, you are their first call because you have been serving them all year.</p>
+
+      <h2>Scale with Systems</h2>
+      <p>As you grow, the businesses that scale successfully are the ones with systems in place--scheduling software, automated review requests, and clear processes for quality control. Vortex can handle the review automation piece, sending requests after every completed job so your reputation grows on autopilot while you focus on delivering great service. <a href="/contact">Learn how to set it up in 15 minutes</a>.</p>
+    `,
+  },
+  {
+    slug: "marketing-tips-juneau-small-business",
+    title: "Top 5 Marketing Tips for Small Businesses in Juneau, Alaska",
+    excerpt: "Low-cost, high-impact marketing strategies to attract more clients and build credibility for Juneau business owners.",
+    date: "January 15, 2026",
+    readTime: "6 min read",
+    category: "Marketing",
+    image: "/images/blog/juneau-business.jpg",
+    content: `
+      <h2>1. Optimize Your Google Business Profile</h2>
+      <p>For Juneau businesses, your Google Business Profile is your digital storefront. With a population of around 32,000, Juneau is a tight-knit community where local search dominance translates directly to revenue. Make sure your profile is 100% complete--add photos of your business, respond to every review, post weekly updates, and keep your hours accurate. Businesses with complete profiles get 7x more clicks than those with incomplete ones.</p>
+
+      <h2>2. Leverage the Tourism Season</h2>
+      <p>Juneau welcomes over a million cruise ship passengers each season. Even if tourists are not your primary audience, the seasonal influx creates ripple effects across the local economy. Restaurants, retail shops, and tour operators should create Google posts and social content targeting visitors during peak months. A tourist who leaves a positive review helps your visibility year-round, even after the ships stop coming.</p>
+
+      <h2>3. Build Partnerships with Other Local Businesses</h2>
+      <p>Cross-promotion is incredibly effective in a small market like Juneau. Partner with complementary businesses--a coffee shop and a bookstore, a mechanic and a tire shop, a salon and a spa. Refer customers to each other and share each other's social media posts. In a community this size, collaborative marketing builds trust faster than any ad campaign.</p>
+
+      <h2>4. Collect and Showcase Reviews Consistently</h2>
+      <p>In Juneau, everyone knows everyone. But new residents and tourists still rely on online reviews to make decisions. A steady stream of fresh, positive reviews keeps your business at the top of local search results and builds credibility with newcomers. Do not leave this to chance--automate your review collection so every satisfied customer is prompted to share their experience.</p>
+
+      <h2>5. Use Social Media to Tell Your Story</h2>
+      <p>Juneau residents love supporting businesses with a story. Share behind-the-scenes content, introduce your team, and highlight what makes your business uniquely Alaskan. Facebook is still the dominant platform in Juneau, but Instagram is growing fast, especially among younger residents. Post consistently and engage with comments--social media in a small town is a conversation, not a broadcast. And when you are ready to put your review collection on autopilot, <a href="/contact">Vortex makes it effortless</a>.</p>
+    `,
+  },
+  {
+    slug: "alaska-retail-online-reviews",
+    title: "How Alaska Retail Shops Can Increase Online Reviews and Boost Local Sales",
+    excerpt: "Actionable tips for retail businesses in Anchorage, Fairbanks, and Juneau to leverage customer feedback for increased foot traffic.",
+    date: "January 12, 2026",
+    readTime: "7 min read",
+    category: "Retail",
+    image: "/images/blog/retail-alaska.jpg",
+    content: `
+      <h2>The Review Gap in Alaska Retail</h2>
+      <p>Most Alaska retail shops are leaving money on the table by not actively collecting reviews. While restaurants and service businesses have caught on, retail stores often assume reviews do not matter as much for them. The data tells a different story: 93% of consumers say online reviews influence their purchasing decisions, and retail businesses with strong review profiles see measurably higher foot traffic. In markets like Anchorage and Fairbanks, where shoppers have limited options, strong reviews can be the deciding factor between your store and the competition--or ordering from Amazon.</p>
+
+      <h2>Train Your Team to Create Review-Worthy Moments</h2>
+      <p>Reviews start with experience. Train your staff to go beyond the transactional--remember regular customers' names, offer genuine product recommendations, and handle returns gracefully. These small moments are what people write about in reviews. A five-star review that says "Sarah helped me find the perfect gift and even wrapped it beautifully" is worth more than any ad you could run.</p>
+
+      <h2>The Point-of-Sale Ask</h2>
+      <p>The checkout counter is your highest-leverage moment. After a positive interaction, a simple "We'd really appreciate it if you could leave us a Google review" paired with a QR code on a small card or countertop sign makes the process friction-free. Some Alaska retailers have seen their review count double within a month just by placing a QR code at the register.</p>
+
+      <h2>Follow Up After Purchase</h2>
+      <p>If you collect customer phone numbers or emails (even for a loyalty program), use them to send a brief thank-you message with a review link 24 hours after purchase. This catches customers when they have had time to enjoy their purchase but the experience is still fresh. Automation makes this hands-off for you and your staff.</p>
+
+      <h2>Turn Reviews Into Marketing</h2>
+      <p>Do not just collect reviews--use them. Feature your best reviews on social media, in-store signage, and your website. This creates a flywheel: existing reviews attract new customers, who leave more reviews. For Alaska retail shops looking to compete with online giants, a strong local review profile is your greatest advantage. <a href="/contact">Let Vortex automate the process</a> so you can focus on what you do best--serving your community.</p>
+    `,
+  },
+  {
+    slug: "seasonal-business-reviews-alaska",
+    title: "How Seasonal Businesses in Alaska Can Stay Visible Year-Round",
+    excerpt: "Strategies for tourism and weather-affected businesses to maintain momentum during peak and off-peak seasons.",
+    date: "January 10, 2026",
+    readTime: "7 min read",
+    category: "Seasonal Business",
+    image: "/images/blog/seasonal-alaska.jpg",
+    content: `
+      <h2>The Seasonal Challenge</h2>
+      <p>Alaska's economy runs on seasons. Fishing charters, tour operators, outdoor adventure companies, and even many restaurants see the bulk of their revenue in a four-to-five-month window. The temptation is to go dark during the off-season--stop posting, stop marketing, and wait for spring. This is a costly mistake. Google rewards businesses that maintain consistent activity year-round, and customers plan their summer activities months in advance. If you are invisible in February, you are losing bookings for June.</p>
+
+      <h2>Keep Your Google Profile Active Year-Round</h2>
+      <p>Even when you are closed for the season, your Google Business Profile should be working for you. Post regular updates--share throwback photos from last season, announce early-bird specials for the upcoming season, and respond to every review that comes in. Google's algorithm favors businesses with recent activity, so a profile that goes dormant for six months will rank lower when peak season returns.</p>
+
+      <h2>Stack Reviews During Peak Season</h2>
+      <p>Your busiest months are also your best opportunity to build a review fortress. Every happy customer during peak season should receive an automated review request. A fishing charter that collects 100 reviews during summer will dominate search results the following year, even during months they are not operating. Think of reviews as stored energy--collect them when business is booming and they will power your visibility during the slow months.</p>
+
+      <h2>Create Off-Season Content</h2>
+      <p>Use the off-season to create content that captures search traffic from people planning their Alaska trips. Blog posts like "Best Time to Visit Denali" or "What to Pack for an Alaska Fishing Trip" attract visitors to your site months before they book. This content compounds over time, building organic traffic that feeds into bookings.</p>
+
+      <h2>Plan Your Comeback</h2>
+      <p>Start your marketing push 60-90 days before your season opens. Send email blasts to past customers, ramp up social media, and make sure your review profile is strong. Businesses that treat the off-season as preparation time--not hibernation--come back stronger every year. <a href="/contact">Vortex helps you automate the review piece</a> so your reputation keeps growing even when you are focused on operations.</p>
+    `,
+  },
+  {
+    slug: "respond-negative-reviews-alaska",
+    title: "How to Respond to Negative Reviews as a Small Business Owner in Alaska",
+    excerpt: "Turn negative feedback into opportunities with proven response strategies that protect and enhance your reputation.",
+    date: "January 8, 2026",
+    readTime: "6 min read",
+    category: "Reputation",
+    image: "/images/blog/responding-reviews.jpg",
+    content: `
+      <h2>Do Not Panic--Negative Reviews Happen</h2>
+      <p>Every business gets a negative review eventually. In Alaska's close-knit communities, a bad review can feel personal, especially when you know the reviewer or their friends. But how you respond matters far more than the review itself. Studies show that 45% of consumers are more likely to visit a business that responds thoughtfully to negative reviews. Your response is not just for the unhappy customer--it is for every future customer who reads it.</p>
+
+      <h2>The 24-Hour Rule</h2>
+      <p>Never respond in the heat of the moment. Read the review, take a breath, and wait at least a few hours before crafting your response. Responding emotionally or defensively will always make things worse. After you have cooled down, write a response that is professional, empathetic, and solution-oriented. Acknowledge the customer's experience, apologize for the inconvenience, and offer to make it right offline.</p>
+
+      <h2>A Template That Works</h2>
+      <p>Here is a framework for responding to negative reviews: Start with the customer's name. Thank them for their feedback. Acknowledge the specific issue they raised. Apologize sincerely. Explain what you are doing to address it. Invite them to contact you directly to resolve the matter. Keep it under 100 words--you want to be concise and professional, not write an essay.</p>
+
+      <h2>When to Flag or Report a Review</h2>
+      <p>Not every negative review is legitimate. If a review is fake, from a competitor, or violates Google's policies (contains hate speech, is clearly spam, or is for the wrong business), flag it for removal. Google does not remove reviews just because they are negative, but they will remove policy violations. Document everything and be patient--the process can take a few weeks.</p>
+
+      <h2>Drown Out the Negative with Positive</h2>
+      <p>The best defense against negative reviews is an overwhelming number of positive ones. If you have 200 five-star reviews and one unhappy customer, the impact is negligible. This is why consistent review collection is so important. Automated review requests ensure that every satisfied customer has the opportunity to share their experience, building a review profile that can weather the occasional negative review. <a href="/contact">Vortex makes this automatic</a>--set it up once and let your happy customers speak for you.</p>
+    `,
+  },
+  {
+    slug: "alaska-business-review-checklist",
+    title: "The Ultimate Checklist for Alaska Business Owners to Grow Online Presence",
+    excerpt: "A comprehensive, step-by-step checklist to systematically grow your online visibility and stand out in the Alaska market.",
+    date: "January 5, 2026",
+    readTime: "8 min read",
+    category: "Guide",
+    image: "/images/blog/business-checklist.jpg",
+    content: `
+      <h2>Your Google Business Profile</h2>
+      <p>Start here--this is the foundation of your local visibility. Claim and verify your Google Business Profile if you have not already. Fill out every single field: business name, address, phone number, website, hours, service area, business description, and categories. Add at least 10 high-quality photos of your business, team, and work. Set a reminder to add new photos monthly and post updates weekly. Respond to every review within 48 hours. A fully optimized Google Business Profile is the single most impactful thing you can do for local search visibility.</p>
+
+      <h2>Your Review Strategy</h2>
+      <p>Set a target: aim for at least 50 Google reviews in your first six months, then 10+ new reviews per month ongoing. Create a simple process for asking every customer for a review--or better yet, automate it. Send review requests via text within 24 hours of service completion. Track your review count and average rating monthly. Respond to every review, positive or negative, with a personalized message.</p>
+
+      <h2>Your Website Essentials</h2>
+      <p>Your website does not need to be fancy, but it needs to be functional. Ensure it loads in under 3 seconds, is mobile-friendly, and clearly states what you do, where you serve, and how to contact you. Include your NAP (Name, Address, Phone) on every page, matching your Google Business Profile exactly. Add a dedicated page for each service you offer, optimized for local keywords like "furnace repair Anchorage" or "lawn care Fairbanks."</p>
+
+      <h2>Your Social Media Presence</h2>
+      <p>You do not need to be on every platform. Pick one or two where your customers spend time (Facebook and Instagram are the top choices for most Alaska businesses) and post consistently--aim for 3-5 times per week. Share customer reviews, before-and-after photos, team highlights, and seasonal tips. Engage with comments and messages promptly. Social media builds familiarity and trust, which translates to calls and bookings.</p>
+
+      <h2>Your Ongoing Maintenance</h2>
+      <p>Set a monthly check-in: review your Google analytics, check your review count and rating, update your Google Business Profile with new photos and posts, and scan for any incorrect business information across the web. Consistency is what separates businesses that grow from those that plateau. And if you want to take the review piece off your plate entirely, <a href="/contact">Vortex handles it automatically</a>--so you can focus on running your business.</p>
+    `,
+  },
+  {
+    slug: "auto-shops-alaska-customer-growth",
+    title: "How Auto Shops in Alaska Can Get More Customers and Grow Business",
+    excerpt: "Industry-specific strategies for Alaska auto repair shops to build trust, attract more customers, and grow sustainably.",
+    date: "January 3, 2026",
+    readTime: "8 min read",
+    category: "Auto Industry",
+    image: "/images/blog/auto-repair.jpg",
+    content: `
+      <h2>Trust Is Everything in Auto Repair</h2>
+      <p>Auto repair is one of the most trust-dependent industries. Customers are handing over their vehicle--often their primary way to get around in Alaska's vast distances and extreme weather--and trusting you to diagnose honestly and fix correctly. Online reviews are the number-one way new customers evaluate whether to trust a shop. In Anchorage and Fairbanks, the shops with the most (and best) reviews consistently win the most new customers. A shop with 150+ reviews and a 4.7+ rating is virtually guaranteed to be the first call for anyone searching "auto repair near me."</p>
+
+      <h2>Specialize for Alaska Conditions</h2>
+      <p>Alaska puts unique demands on vehicles: extreme cold starts, gravel road damage, rust from road salt, and moose collision repairs. Position your shop as an expert in Alaska-specific vehicle needs. Create content around topics like "winterizing your vehicle for Alaska" or "how cold weather affects your battery." This builds authority in local search and differentiates you from generic repair shops.</p>
+
+      <h2>The Post-Service Review Request</h2>
+      <p>The moment a customer picks up their vehicle is your best opportunity for a review. They are relieved their car is fixed, and if you explained the work clearly and charged fairly, they are feeling good about your shop. An automated text sent an hour after pickup--"Thanks for choosing us! We'd love your feedback on Google"--converts at a much higher rate than asking in person, where people often forget.</p>
+
+      <h2>Transparent Pricing and Communication</h2>
+      <p>The shops that earn the best reviews are the ones that communicate proactively. Call the customer before doing any unexpected work. Provide written estimates. Explain what you found in plain language, not mechanic jargon. These practices earn five-star reviews that mention your honesty and transparency--the exact words that make new customers choose you over competitors.</p>
+
+      <h2>Grow Your Review Count Systematically</h2>
+      <p>Set a goal: one new review for every five vehicles you service. With automation, this is easily achievable--most shops see a 20-30% response rate on automated review requests. Over a year, that adds up to hundreds of reviews that compound your visibility and credibility. <a href="/contact">Vortex was built for businesses like yours</a>--set it up in 15 minutes and watch your review count climb.</p>
+    `,
+  },
+  {
+    slug: "alaska-salons-attract-clients",
+    title: "5 Proven Ways Alaska Salons Can Attract More Clients",
+    excerpt: "Marketing strategies for Alaska salons to build a loyal clientele, including seasonal trends and local demographics.",
+    date: "January 1, 2026",
+    readTime: "7 min read",
+    category: "Salon & Beauty",
+    image: "/images/blog/salon.jpg",
+    content: `
+      <h2>1. Showcase Your Work on Social Media</h2>
+      <p>For salons, visual proof is your most powerful marketing tool. Post before-and-after transformations, trending styles, and seasonal looks on Instagram and Facebook. Alaska salons have a unique angle--play up seasonal themes like "winter formal updos" or "summer wedding styles in Anchorage." Use local hashtags and geotags to reach customers in your area. Consistency matters more than perfection: aim for one post per day during peak booking seasons and three per week during slower months.</p>
+
+      <h2>2. Build a Review Powerhouse</h2>
+      <p>Salons live and die by their reviews. A potential client choosing between two salons will almost always pick the one with more positive reviews. After every appointment, send an automated text asking for a Google review. Include a direct link so the client can leave feedback in under 60 seconds. Salons using automated review requests typically see their monthly review count increase by 300-400%. In a competitive market like Anchorage, this kind of social proof is a game-changer.</p>
+
+      <h2>3. Create a Referral Program</h2>
+      <p>Word-of-mouth is already the top driver for salon bookings in Alaska. Formalize it with a referral program: offer existing clients a discount or free add-on service for every new client they refer. Make it easy by giving clients a simple code or card to share. Track referrals and celebrate your top referrers--this creates a community of brand advocates who actively promote your salon.</p>
+
+      <h2>4. Optimize for "Salon Near Me" Searches</h2>
+      <p>When someone searches "hair salon near me" or "best salon in Anchorage," your Google Business Profile determines whether you show up. Add photos of your salon interior, your team, and your best work. List every service you offer with descriptions. Keep your hours updated, especially around holidays. Post weekly updates about availability, new services, or seasonal specials. These signals tell Google you are an active, relevant business worthy of top placement.</p>
+
+      <h2>5. Offer Seasonal Promotions That Drive Bookings</h2>
+      <p>Alaska's seasons create natural marketing moments. Prom season, wedding season, holiday parties, and the long winter months when self-care spending increases--align your promotions with these cycles. "Winter Self-Care Package" or "Prom Glam Special" creates urgency and gives clients a reason to book now rather than later. Promote these through email, social media, and your Google Business Profile. And to keep your reviews flowing through every season, <a href="/contact">let Vortex handle the follow-up automatically</a>.</p>
+    `,
+  },
+  {
+    slug: "alaska-restaurants-credibility-rankings",
+    title: "How Restaurants in Alaska Can Boost Credibility and Local Rankings",
+    excerpt: "A guide for Alaska restaurant owners to build trust, improve visibility, and attract more diners.",
+    date: "December 28, 2025",
+    readTime: "7 min read",
+    category: "Restaurant",
+    image: "/images/blog/restaurant.jpg",
+    content: `
+      <h2>Reviews Are Your Best Marketing</h2>
+      <p>For Alaska restaurants, reviews are the difference between a full dining room and empty tables. When someone searches "restaurants near me" or "best pizza in Anchorage," Google shows businesses ranked largely by review quantity and quality. A restaurant with 300 reviews and a 4.5 rating will outrank one with 40 reviews and a 4.8 rating--volume matters. The restaurants dominating local search in Anchorage, Fairbanks, and Juneau all have one thing in common: they actively collect reviews from their guests.</p>
+
+      <h2>Make Reviewing Part of the Dining Experience</h2>
+      <p>Place a small table card or QR code at every table that links directly to your Google review page. Train your servers to mention it casually: "If you enjoyed your meal, we'd love a quick review--the QR code is on the table." This low-pressure approach works because diners are already in a positive mood after a good meal. Some restaurants include the QR code on their receipt or follow up with a text after a reservation-based visit.</p>
+
+      <h2>Respond to Reviews Like a Host</h2>
+      <p>Treat review responses the way you treat guests at the door--warmly and personally. Thank reviewers by name, mention their specific dish or experience, and invite them back. For negative reviews, respond with the same grace you would show a dissatisfied diner in person: acknowledge the issue, apologize, and offer to make it right. Potential customers read these responses and judge your restaurant by how you handle both praise and criticism.</p>
+
+      <h2>Leverage Food Photography</h2>
+      <p>Alaska restaurants have a secret weapon: the scenery. If your restaurant has a view, use it. Post mouthwatering food photos with Alaskan backdrops on your Google profile and social media. Encourage diners to share their own photos and tag your restaurant. User-generated content builds authenticity and extends your reach far beyond your own followers.</p>
+
+      <h2>Stay Visible During the Off-Season</h2>
+      <p>Many Alaska restaurants see a dip after tourist season ends. Keep your Google profile active with winter specials, holiday menus, and community events. Engage with local food bloggers and participate in restaurant weeks or food festivals. The restaurants that market through winter come back stronger in summer. And with Vortex automating your review requests, your reputation keeps growing regardless of the season. <a href="/contact">Get started today</a>.</p>
+    `,
+  },
+  {
+    slug: "alaska-gyms-grow-membership",
+    title: "How Local Gyms in Alaska Can Grow Membership",
+    excerpt: "Member engagement strategies and marketing tips for Alaska fitness centers to build a thriving community.",
+    date: "December 25, 2025",
+    readTime: "7 min read",
+    category: "Fitness",
+    image: "/images/blog/gym.jpg",
+    content: `
+      <h2>The Alaska Fitness Opportunity</h2>
+      <p>Long, dark winters make indoor fitness a necessity for many Alaskans. Gyms and fitness centers in Anchorage, Fairbanks, and the Mat-Su Valley are not just places to work out--they are community hubs that combat seasonal depression and keep people active when outdoor options are limited. This creates a built-in demand that smart gym owners can capitalize on with the right marketing and member engagement strategies.</p>
+
+      <h2>Turn Members Into Advocates</h2>
+      <p>Your best marketing channel is your existing members. Happy members who leave Google reviews attract new sign-ups more effectively than any paid ad. After a member has been with you for 30 days--long enough to experience real results--send an automated review request. Members who have formed a gym habit and feel the benefits are far more likely to leave a detailed, glowing review than brand-new members who have not yet experienced your value.</p>
+
+      <h2>Create Challenges and Community Events</h2>
+      <p>Fitness challenges are one of the most effective membership drivers. "New Year, New You" in January, a "Midnight Sun Challenge" in summer, or a "Dark Days Fitness Challenge" in November create urgency and social accountability. Promote these through social media and your Google profile. Require participants to be members, and offer prizes that encourage retention--like free personal training sessions or branded gear.</p>
+
+      <h2>Optimize Your Online Presence</h2>
+      <p>When someone searches "gym near me" or "fitness center Anchorage," your Google Business Profile is your first impression. Add photos of your facility, equipment, classes in action, and member transformations (with permission). List every class and amenity you offer. Post weekly updates about class schedules, special events, and member achievements. A vibrant, active Google profile signals that your gym is a thriving community, not just a room full of equipment.</p>
+
+      <h2>Retention Is the Real Growth Lever</h2>
+      <p>Acquiring a new member costs 5-10x more than retaining an existing one. Focus on creating an experience that keeps members coming back: greet them by name, celebrate milestones, and make classes engaging and varied. Members who feel seen and valued stay longer and refer more people. Pair great service with automated review collection, and your gym builds a reputation that attracts new members on autopilot. <a href="/contact">Vortex handles the review automation</a>--you handle the community building.</p>
+    `,
+  },
+  {
+    slug: "local-seo-guide-alaska",
+    title: "The Ultimate Guide to Local SEO for Small Businesses in Alaska",
+    excerpt: "Practical steps for ranking higher in Google Maps and search results, tailored for Alaska business owners.",
+    date: "December 22, 2025",
+    readTime: "10 min read",
+    category: "SEO",
+    image: "/images/blog/local-seo.jpg",
+    content: `
+      <h2>What Is Local SEO and Why Does It Matter in Alaska?</h2>
+      <p>Local SEO is the practice of optimizing your online presence to attract customers from relevant local searches. When someone in Anchorage searches "plumber near me" or "best coffee shop in Fairbanks," Google uses local SEO signals to decide which businesses to show. For Alaska businesses, local SEO is especially important because of the state's geographic isolation and strong preference for local providers. Ranking in the Google Maps "3-pack"--the top three businesses shown on a map for a local search--can single-handedly drive the majority of your new customer inquiries.</p>
+
+      <h2>The Three Pillars of Local SEO</h2>
+      <p>Google ranks local businesses based on three factors: relevance (how well your business matches the search), distance (how close you are to the searcher), and prominence (how well-known and well-reviewed your business is). You can directly influence relevance through your Google Business Profile categories and descriptions, and you can build prominence through reviews, citations, and website content. Distance is the one factor you cannot control, which makes the other two even more critical.</p>
+
+      <h2>Optimize Your Google Business Profile</h2>
+      <p>This is the single most important local SEO task. Choose the most accurate primary category for your business. Write a keyword-rich description that mentions your city and services. Add photos weekly. Post updates regularly. Collect and respond to reviews. Enable messaging. Add your products or services with descriptions. A fully optimized profile sends strong signals to Google that your business is active, relevant, and trustworthy.</p>
+
+      <h2>Build Local Citations</h2>
+      <p>Citations are mentions of your business name, address, and phone number (NAP) across the web. Ensure your NAP is consistent everywhere: Yelp, Facebook, the Better Business Bureau, your local Chamber of Commerce, Alaska-specific directories, and industry-specific sites. Inconsistent information confuses Google and can hurt your rankings. Use a tool like BrightLocal or Moz to audit your citations and fix any discrepancies.</p>
+
+      <h2>Content That Ranks Locally</h2>
+      <p>Create dedicated pages on your website for each service you offer and each area you serve. "HVAC Repair in Anchorage" and "Furnace Installation in Eagle River" should be separate pages with unique content. Blog about topics relevant to your Alaska audience--seasonal maintenance tips, local events, and industry-specific advice. This content builds topical authority and captures long-tail search traffic that drives qualified leads to your business. Combine great content with a strong review profile, and you have a local SEO strategy that delivers results. <a href="/contact">Vortex can help with the review side</a>--getting more five-star reviews on autopilot.</p>
+    `,
+  },
+  {
+    slug: "attract-customers-reviews-alaska",
+    title: "How Local Business Owners in Alaska Can Attract More Customers",
+    excerpt: "Industry examples, practical tips, and actionable steps for growing your Alaska business.",
+    date: "December 20, 2025",
+    readTime: "8 min read",
+    category: "Growth",
+    image: "/images/blog/attract-customers.jpg",
+    content: `
+      <h2>The Trust Gap in Alaska</h2>
+      <p>Alaska business owners face a unique challenge: the market is small enough that reputation is everything, but large enough that you cannot reach everyone through personal relationships alone. Online reviews bridge this gap. A potential customer in Wasilla considering a contractor in Anchorage will check Google reviews before making a call. A strong review profile does the trust-building work that used to require years of word-of-mouth. If your competitors have more reviews than you, they are getting the calls you should be getting.</p>
+
+      <h2>Focus on Your Google Presence First</h2>
+      <p>Before spending money on ads or social media, make sure your Google Business Profile is fully optimized. This is free and delivers the highest ROI of any marketing activity. Complete every field, add quality photos, respond to reviews, and post updates weekly. For most Alaska businesses, ranking in the local map pack generates more leads than all other marketing channels combined.</p>
+
+      <h2>Create a Review Collection System</h2>
+      <p>The difference between businesses that grow steadily and those that plateau is often as simple as a consistent review collection system. Do not rely on customers remembering to leave reviews on their own--only about 5% will. With an automated system that sends a friendly text request after every job, that number jumps to 20-30%. Over a year, that is the difference between 10 new reviews and 100+ new reviews. The business with 100+ reviews wins the local search battle every time.</p>
+
+      <h2>Leverage Your Reviews in Marketing</h2>
+      <p>Once you have a strong review profile, use it everywhere. Feature your best reviews on your website homepage, in social media posts, on vehicle wraps, and in email signatures. "Rated 4.9 stars on Google with 200+ reviews" is one of the most powerful trust signals you can display. It answers the customer's unspoken question--"Can I trust this business?"--before they even pick up the phone.</p>
+
+      <h2>Consistency Beats Intensity</h2>
+      <p>Growing your customer base is not about big marketing pushes or viral moments. It is about consistently showing up: consistently collecting reviews, consistently posting on Google, consistently delivering great service. The businesses that win in Alaska are the ones that do the right things every day, not the ones that do something flashy once a quarter. <a href="/contact">Vortex helps you stay consistent</a> by automating the most important piece--getting reviews from every happy customer, every time.</p>
+    `,
+  },
+  {
+    slug: "local-seo-mistakes-alaska",
+    title: "Top 10 Local SEO Mistakes Alaska Small Businesses Make and How to Fix Them",
+    excerpt: "Common pitfalls that hurt local visibility and practical solutions to get your business ranking.",
+    date: "December 18, 2025",
+    readTime: "9 min read",
+    category: "SEO",
+    image: "/images/blog/seo-mistakes.jpg",
+    content: `
+      <h2>Mistake 1-3: Profile and Information Errors</h2>
+      <p><strong>1. Incomplete Google Business Profile.</strong> Many Alaska businesses claim their profile but leave fields empty. Every blank field is a missed opportunity to rank. Fix: Complete every single field, including services, business description, and attributes.</p>
+      <p><strong>2. Inconsistent NAP across the web.</strong> Your business name, address, and phone number must be identical everywhere--Google, Yelp, Facebook, your website, directories. Even small differences like "St." vs "Street" can confuse Google. Fix: Audit all your listings and standardize your NAP format.</p>
+      <p><strong>3. Wrong business categories.</strong> Choosing too many categories or the wrong primary category dilutes your relevance. Fix: Pick the single most accurate primary category and add only genuinely relevant secondary categories.</p>
+
+      <h2>Mistake 4-6: Review and Engagement Gaps</h2>
+      <p><strong>4. Not actively collecting reviews.</strong> Waiting for reviews to come organically means losing to competitors who actively ask. Fix: Implement an automated review request system that reaches every customer.</p>
+      <p><strong>5. Ignoring negative reviews.</strong> Unanswered negative reviews signal to Google and customers that you do not care. Fix: Respond to every review within 48 hours with a professional, empathetic message.</p>
+      <p><strong>6. Not responding to positive reviews.</strong> Even positive reviews deserve a response. It encourages more reviews and shows engagement. Fix: Thank every reviewer by name and mention something specific about their experience.</p>
+
+      <h2>Mistake 7-8: Website Issues</h2>
+      <p><strong>7. No location-specific pages.</strong> A single "Services" page will not rank for specific local searches. Fix: Create dedicated pages for each service in each area you serve (e.g., "Roof Repair Anchorage," "Roof Repair Eagle River").</p>
+      <p><strong>8. Slow, non-mobile-friendly website.</strong> Over 60% of local searches happen on mobile. A slow or hard-to-navigate mobile site drives customers away. Fix: Test your site with Google's PageSpeed Insights and fix any issues. Ensure click-to-call buttons work and forms are easy to fill on a phone.</p>
+
+      <h2>Mistake 9-10: Missed Opportunities</h2>
+      <p><strong>9. No Google Business Profile posts.</strong> Google rewards active profiles. Businesses that post weekly rank higher than those that never post. Fix: Schedule a weekly post--share a photo, a tip, a promotion, or a customer success story.</p>
+      <p><strong>10. Treating SEO as a one-time task.</strong> Local SEO requires ongoing effort. Rankings slip when you stop maintaining your presence. Fix: Set a monthly maintenance schedule for updating photos, collecting reviews, posting updates, and checking your citations.</p>
+      <p>Avoiding these mistakes puts you ahead of the majority of Alaska businesses. And the easiest fix to implement? Automated review collection. <a href="/contact">Vortex sets this up in 15 minutes</a> so you never miss a review opportunity.</p>
+    `,
+  },
+  {
+    slug: "faq-online-reviews-alaska",
+    title: "Everything Alaska Small Business Owners Need to Know About Online Reviews",
+    excerpt: "Answers to the most common questions about building and managing your online reputation.",
+    date: "December 15, 2025",
+    readTime: "8 min read",
+    category: "FAQ",
+    image: "/images/blog/faq-reviews.jpg",
+    content: `
+      <h2>How Many Reviews Do I Actually Need?</h2>
+      <p>There is no magic number, but here is a practical benchmark: you need more reviews than your top local competitors. Check the businesses that rank above you in Google Maps and aim to surpass their review count within 6-12 months. For most Alaska industries, 50-100 reviews puts you in a strong position, and 200+ makes you dominant. More importantly, your reviews need to be recent. Google weighs recency heavily, so 10 reviews from this month are more valuable than 50 reviews from two years ago.</p>
+
+      <h2>Can I Ask Customers for Reviews?</h2>
+      <p>Absolutely--and you should. Google explicitly encourages businesses to ask customers for reviews. The key is that you cannot offer incentives (no discounts or gifts in exchange for reviews), you cannot ask only happy customers (this is called "review gating" and Google frowns upon it), and you cannot write reviews on behalf of customers. A simple, honest ask after delivering good service is perfectly acceptable and highly effective.</p>
+
+      <h2>What About Fake Reviews?</h2>
+      <p>Buying fake reviews is a violation of Google's terms of service and can result in your business being penalized or removed from Google Maps entirely. It is also surprisingly easy for Google's algorithms to detect. Do not risk it. Focus on getting genuine reviews from real customers--this is the only sustainable strategy. If you suspect a competitor is using fake reviews, you can report them to Google.</p>
+
+      <h2>How Do I Handle a Review I Disagree With?</h2>
+      <p>If a review is factually inaccurate but not a policy violation, your best move is to respond professionally with your side of the story. Do not argue or get defensive--state the facts calmly and invite the reviewer to discuss it offline. Future customers will judge you by how you handle the situation, not by the negative review itself. If the review violates Google's policies (fake, spam, or from someone who was never a customer), flag it for removal through Google's review reporting tool.</p>
+
+      <h2>How Do I Get Started with Review Automation?</h2>
+      <p>Review automation tools send a text message or email to customers after a service is completed, asking them to leave a Google review with a direct link. The best tools make this completely hands-off--once set up, every customer receives a request automatically. This eliminates the biggest barrier to getting reviews: remembering to ask. <a href="/contact">Vortex is built specifically for Alaska businesses</a> and takes about 15 minutes to set up. From there, your review count grows automatically with every happy customer.</p>
+    `,
+  },
+  {
+    slug: "myths-online-reviews-alaska",
+    title: "Debunking Myths About Online Reviews for Small Businesses in Alaska",
+    excerpt: "Separating fact from fiction to help you make smarter decisions about your online presence.",
+    date: "December 12, 2025",
+    readTime: "7 min read",
+    category: "Myth-Busting",
+    image: "/images/blog/myths-reviews.jpg",
+    content: `
+      <h2>Myth: "My Business Is Too Small for Reviews to Matter"</h2>
+      <p>This is one of the most damaging misconceptions, especially in Alaska where many businesses are small operations. The truth is the opposite: reviews matter MORE for small businesses. A large chain has brand recognition working in its favor. A small local business needs social proof to compete. When a homeowner in Anchorage needs a plumber they have never used before, they search Google and pick the one with the most positive reviews. Your size does not matter--your reputation does.</p>
+
+      <h2>Myth: "Only Unhappy Customers Leave Reviews"</h2>
+      <p>This used to be more true than it is today, but it was always overstated. The real issue is that unhappy customers are more motivated to leave reviews on their own. Happy customers are willing to leave reviews--they just need to be asked. When businesses implement a review request system, they consistently find that the vast majority of reviews they receive are four and five stars. The "only angry people review" myth is self-fulfilling: if you never ask happy customers, you will only get reviews from unhappy ones.</p>
+
+      <h2>Myth: "A Perfect 5.0 Rating Is the Goal"</h2>
+      <p>Counterintuitively, a perfect 5.0 rating can actually hurt credibility. Consumers are savvy--they know no business is perfect, and a flawless rating can seem suspicious. Studies show that businesses with ratings between 4.2 and 4.8 actually convert better than those with a perfect 5.0. A few honest three or four-star reviews mixed in with your five-stars makes your profile look authentic and trustworthy.</p>
+
+      <h2>Myth: "I Can Just Buy Reviews If I Fall Behind"</h2>
+      <p>Buying reviews is one of the riskiest things you can do for your business. Google's detection systems are sophisticated and improving constantly. Penalties range from review removal to complete suspension of your Google Business Profile--which means disappearing from Google Maps entirely. There is no shortcut here. The only sustainable path is genuine reviews from real customers, collected consistently over time.</p>
+
+      <h2>Myth: "Reviews Only Help Online Businesses"</h2>
+      <p>Physical, brick-and-mortar businesses benefit from reviews even more than online-only companies. Reviews drive foot traffic, phone calls, and in-person visits. For Alaska businesses that rely on local customers--restaurants, shops, service providers--a strong Google review profile is often the primary driver of new business. The research is clear: 87% of consumers read online reviews for local businesses, and the number continues to climb every year. Ready to build your review profile the right way? <a href="/contact">Vortex makes it simple and automatic</a>.</p>
+    `,
+  },
+  {
+    slug: "how-to-handle-bad-reviews",
+    title: "The Complete Guide to Handling Bad Reviews for Alaska Businesses",
+    excerpt: "How to report, respond, and recover from negative reviews--plus legal options when necessary.",
+    date: "December 10, 2025",
+    readTime: "10 min read",
+    category: "Reputation",
+    image: "/images/blog/bad-reviews.jpg",
+    content: `
+      <h2>Step 1: Assess the Situation</h2>
+      <p>Not all bad reviews are created equal. Before reacting, categorize the review. Is it from a genuine customer with a legitimate complaint? Is it a misunderstanding? Is it from someone who was never actually a customer? Is it potentially fake or from a competitor? Each situation requires a different approach. Take time to investigate internally--talk to your team, check your records, and understand what happened before crafting a response.</p>
+
+      <h2>Step 2: Respond Professionally and Promptly</h2>
+      <p>For legitimate complaints, respond within 24-48 hours. Your response should follow this framework: thank them for the feedback, acknowledge their specific experience, apologize for the shortcoming, explain what you are doing to address it, and invite them to contact you directly to resolve the issue. Keep the tone warm and professional--remember, your response is really written for the hundreds of potential customers who will read it, not just the reviewer.</p>
+
+      <h2>Step 3: Take the Conversation Offline</h2>
+      <p>Never argue in a review thread. After your initial public response, move the conversation to a private channel--phone, email, or in-person meeting. Many negative reviews can be resolved through a direct conversation, and satisfied customers often update or remove their negative review voluntarily. Even if they do not, the public record shows you made the effort, which builds trust with future customers.</p>
+
+      <h2>Step 4: Report Violations</h2>
+      <p>If a review is fake, from a competitor, contains hate speech, or violates Google's review policies in another way, report it. Go to your Google Business Profile, find the review, click the three dots, and select "Report review." Provide as much detail as possible about why the review violates policies. Google's review team will investigate, but be patient--it can take several weeks. For persistent fake review attacks, consider contacting Google Business Profile support directly.</p>
+
+      <h2>Step 5: Build an Overwhelming Positive Profile</h2>
+      <p>The most effective long-term defense against bad reviews is a strong base of positive ones. If you have 200 five-star reviews, a single one-star review barely moves your average and gets buried in the list. This is why consistent review collection is so critical--it builds resilience into your online reputation. Every happy customer who leaves a review is adding another layer of protection against the occasional negative one.</p>
+      <p>In rare cases where a review is defamatory and causes measurable business harm, consult with a local attorney about your legal options. Alaska's defamation laws may provide recourse, but litigation should always be a last resort. The best strategy is always prevention: deliver great service, collect reviews consistently, and respond to feedback professionally. <a href="/contact">Vortex automates the review collection</a> so your positive reviews always outpace the negative ones.</p>
+    `,
+  },
+];
+
+  return blogPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.title,
+  "description": post.excerpt,
+  "image": `https://vortex-leads.com${post.image}`,
+  "datePublished": new Date(post.date).toISOString(),
+  "author": {
+    "@type": "Organization",
+    "name": "Vortex",
+    "url": "https://vortex-leads.com",
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vortex",
+    "url": "https://vortex-leads.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vortex-leads.com/favicon.svg",
+    },
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://vortex-leads.com/blog/${post.slug}`,
+  },
+};
+---
+
+<Layout
+  title={`${post.title} | Vortex`}
+  description={post.excerpt}
+  ogImage={post.image}
+  schema={schema}
+>
+  <article>
+    <!-- Article Header -->
+    <section class="section-padding bg-gradient-to-br from-dark to-dark-light">
+      <div class="container-width max-w-3xl mx-auto">
+        <a
+          href="/blog"
+          class="inline-flex items-center gap-2 text-text-muted hover:text-white transition-colors duration-200 mb-8 text-sm"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to Blog
+        </a>
+
+        <span class="inline-block text-xs font-semibold uppercase tracking-wider text-primary-light bg-primary/20 px-3 py-1 rounded-full mb-4">
+          {post.category}
+        </span>
+
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
+          {post.title}
+        </h1>
+
+        <div class="flex items-center gap-4 text-text-muted text-sm">
+          <span>{post.date}</span>
+          <span class="w-1 h-1 rounded-full bg-text-muted"></span>
+          <span>{post.readTime}</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Image -->
+    <div class="container-width max-w-3xl mx-auto -mt-4">
+      <div class="aspect-[16/9] rounded-2xl overflow-hidden shadow-xl bg-slate-200">
+        <img
+          src={post.image}
+          alt={post.title}
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+
+    <!-- Article Body -->
+    <section class="section-padding">
+      <div class="container-width max-w-3xl mx-auto">
+        <div class="prose" set:html={post.content} />
+      </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="section-padding bg-gradient-to-br from-primary to-primary-dark relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+      <div class="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+
+      <div class="container-width relative z-10 text-center max-w-2xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
+          Want to Put Your Reviews on Autopilot?
+        </h2>
+        <p class="text-lg text-white/80 mb-8">
+          Join Alaska business owners who are growing their Google reviews automatically--with zero extra effort.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 bg-white text-primary px-8 py-3.5 rounded-xl font-bold text-base hover:bg-slate-100 transition-colors duration-200 shadow-lg shadow-black/10"
+        >
+          Get Started Today
+        </a>
+      </div>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .prose {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #334155;
+  }
+  .prose h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  .prose h2:first-child {
+    margin-top: 0;
+  }
+  .prose p {
+    margin-bottom: 1.25rem;
+  }
+  .prose strong {
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .prose a {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: #2563eb40;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+  .prose a:hover {
+    text-decoration-color: #2563eb;
+  }
+  .prose ul,
+  .prose ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+</style>

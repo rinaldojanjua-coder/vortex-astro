@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero";
+import TrustedBy from "../components/TrustedBy";
+import PainPoints from "../components/PainPoints";
+import Solution from "../components/Solution";
+import ServicesSupported from "../components/ServicesSupported";
+import CaseStudies from "../components/CaseStudies";
+import HowItWorks from "../components/HowItWorks";
+import Features from "../components/Features";
+import VideoTestimonials from "../components/VideoTestimonials";
+import AboutMe from "../components/AboutMe";
+import Pricing from "../components/Pricing";
+import FAQ from "../components/FAQ";
+import CTA from "../components/CTA";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Vortex",
+  "description": "Review automation built for Alaskan home service businesses.",
+  "url": "https://vortex-leads.com",
+  "telephone": "+19078545033",
+  "email": "hello@vortex-leads.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Anchorage",
+    "addressRegion": "AK",
+    "addressCountry": "US",
+  },
+  "areaServed": "Alaska",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "100",
+  },
+};
+---
+
+<Layout
+  title="Vortex | Review Automation for Alaskan Businesses"
+  description="Get more 5-star Google reviews on autopilot. 20-minute setup, then never think about it again. Built by Alaskans, for Alaskans."
+  schema={schema}
+>
+  <Hero client:load />
+  <TrustedBy client:visible />
+  <PainPoints client:visible />
+  <Solution client:visible />
+  <ServicesSupported client:visible />
+  <CaseStudies client:visible />
+  <HowItWorks client:visible />
+  <Features client:visible />
+  <VideoTestimonials client:visible />
+  <AboutMe client:visible />
+  <Pricing client:visible />
+  <FAQ client:visible />
+  <CTA client:visible />
+</Layout>

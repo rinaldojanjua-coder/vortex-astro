@@ -1,0 +1,77 @@
+const quickLinks = [
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "Contact", href: "/contact" },
+];
+
+const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms of Service", href: "/terms-conditions" },
+  { label: "Free Website Offer", href: "/freewebsite" },
+];
+
+export default function Footer() {
+  return (
+    <footer className="bg-slate-900 text-white">
+      <div className="container-width section-padding">
+        {/* Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
+          {/* Brand */}
+          <div>
+            <span className="text-2xl font-extrabold tracking-tight">
+              Vortex
+            </span>
+            <p className="mt-4 text-slate-400 text-sm leading-relaxed max-w-xs">
+              Review automation built for Alaskan home service businesses. Get
+              more 5-star reviews on autopilot.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-300 mb-4">
+              Quick Links
+            </h3>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-slate-400 text-sm hover:text-white transition-colors duration-200"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-300 mb-4">
+              Legal
+            </h3>
+            <ul className="space-y-3">
+              {legalLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-slate-400 text-sm hover:text-white transition-colors duration-200"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+          <p>&copy; 2026 Vortex. All rights reserved.</p>
+          <p>Built with love in Anchorage, Alaska</p>
+        </div>
+      </div>
+    </footer>
+  );
+}

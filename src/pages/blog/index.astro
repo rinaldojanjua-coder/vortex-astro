@@ -1,0 +1,114 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const blogPosts = [
+  { slug: "how-to-get-more-reviews-anchorage", title: "How to Get More Reviews for Your Local Business in Anchorage", excerpt: "Practical strategies for Anchorage businesses to build customer trust and stand out, even during harsh winters and seasonal slowdowns.", date: "January 20, 2026", readTime: "8 min read", category: "Marketing", image: "/images/blog/anchorage-business.jpg" },
+  { slug: "starting-lawncare-business-alaska", title: "Starting and Growing a Lawncare Business in Alaska", excerpt: "A step-by-step guide for aspiring lawn care entrepreneurs in Fairbanks and beyond, including local marketing and building your reputation.", date: "January 18, 2026", readTime: "10 min read", category: "Business Growth", image: "/images/blog/lawncare-alaska.jpg" },
+  { slug: "marketing-tips-juneau-small-business", title: "Top 5 Marketing Tips for Small Businesses in Juneau, Alaska", excerpt: "Low-cost, high-impact marketing strategies to attract more clients and build credibility for Juneau business owners.", date: "January 15, 2026", readTime: "6 min read", category: "Marketing", image: "/images/blog/juneau-business.jpg" },
+  { slug: "alaska-retail-online-reviews", title: "How Alaska Retail Shops Can Increase Online Reviews and Boost Local Sales", excerpt: "Actionable tips for retail businesses in Anchorage, Fairbanks, and Juneau to leverage customer feedback for increased foot traffic.", date: "January 12, 2026", readTime: "7 min read", category: "Retail", image: "/images/blog/retail-alaska.jpg" },
+  { slug: "seasonal-business-reviews-alaska", title: "How Seasonal Businesses in Alaska Can Stay Visible Year-Round", excerpt: "Strategies for tourism and weather-affected businesses to maintain momentum during peak and off-peak seasons.", date: "January 10, 2026", readTime: "7 min read", category: "Seasonal Business", image: "/images/blog/seasonal-alaska.jpg" },
+  { slug: "respond-negative-reviews-alaska", title: "How to Respond to Negative Reviews as a Small Business Owner in Alaska", excerpt: "Turn negative feedback into opportunities with proven response strategies that protect and enhance your reputation.", date: "January 8, 2026", readTime: "6 min read", category: "Reputation", image: "/images/blog/responding-reviews.jpg" },
+  { slug: "alaska-business-review-checklist", title: "The Ultimate Checklist for Alaska Business Owners to Grow Online Presence", excerpt: "A comprehensive, step-by-step checklist to systematically grow your online visibility and stand out in the Alaska market.", date: "January 5, 2026", readTime: "8 min read", category: "Guide", image: "/images/blog/business-checklist.jpg" },
+  { slug: "auto-shops-alaska-customer-growth", title: "How Auto Shops in Alaska Can Get More Customers and Grow Business", excerpt: "Industry-specific strategies for Alaska auto repair shops to build trust, attract more customers, and grow sustainably.", date: "January 3, 2026", readTime: "8 min read", category: "Auto Industry", image: "/images/blog/auto-repair.jpg" },
+  { slug: "alaska-salons-attract-clients", title: "5 Proven Ways Alaska Salons Can Attract More Clients", excerpt: "Marketing strategies for Alaska salons to build a loyal clientele, including seasonal trends and local demographics.", date: "January 1, 2026", readTime: "7 min read", category: "Salon & Beauty", image: "/images/blog/salon.jpg" },
+  { slug: "alaska-restaurants-credibility-rankings", title: "How Restaurants in Alaska Can Boost Credibility and Local Rankings", excerpt: "A guide for Alaska restaurant owners to build trust, improve visibility, and attract more diners.", date: "December 28, 2025", readTime: "7 min read", category: "Restaurant", image: "/images/blog/restaurant.jpg" },
+  { slug: "alaska-gyms-grow-membership", title: "How Local Gyms in Alaska Can Grow Membership", excerpt: "Member engagement strategies and marketing tips for Alaska fitness centers to build a thriving community.", date: "December 25, 2025", readTime: "7 min read", category: "Fitness", image: "/images/blog/gym.jpg" },
+  { slug: "local-seo-guide-alaska", title: "The Ultimate Guide to Local SEO for Small Businesses in Alaska", excerpt: "Practical steps for ranking higher in Google Maps and search results, tailored for Alaska business owners.", date: "December 22, 2025", readTime: "10 min read", category: "SEO", image: "/images/blog/local-seo.jpg" },
+  { slug: "attract-customers-reviews-alaska", title: "How Local Business Owners in Alaska Can Attract More Customers", excerpt: "Industry examples, practical tips, and actionable steps for growing your Alaska business.", date: "December 20, 2025", readTime: "8 min read", category: "Growth", image: "/images/blog/attract-customers.jpg" },
+  { slug: "local-seo-mistakes-alaska", title: "Top 10 Local SEO Mistakes Alaska Small Businesses Make and How to Fix Them", excerpt: "Common pitfalls that hurt local visibility and practical solutions to get your business ranking.", date: "December 18, 2025", readTime: "9 min read", category: "SEO", image: "/images/blog/seo-mistakes.jpg" },
+  { slug: "faq-online-reviews-alaska", title: "Everything Alaska Small Business Owners Need to Know About Online Reviews", excerpt: "Answers to the most common questions about building and managing your online reputation.", date: "December 15, 2025", readTime: "8 min read", category: "FAQ", image: "/images/blog/faq-reviews.jpg" },
+  { slug: "myths-online-reviews-alaska", title: "Debunking Myths About Online Reviews for Small Businesses in Alaska", excerpt: "Separating fact from fiction to help you make smarter decisions about your online presence.", date: "December 12, 2025", readTime: "7 min read", category: "Myth-Busting", image: "/images/blog/myths-reviews.jpg" },
+  { slug: "how-to-handle-bad-reviews", title: "The Complete Guide to Handling Bad Reviews for Alaska Businesses", excerpt: "How to report, respond, and recover from negative reviews--plus legal options when necessary.", date: "December 10, 2025", readTime: "10 min read", category: "Reputation", image: "/images/blog/bad-reviews.jpg" },
+];
+---
+
+<Layout
+  title="Blog | Resources for Alaska Business Owners | Vortex"
+  description="Practical guides, local insights, and proven strategies to help your Alaskan business thrive in the digital age."
+>
+  <!-- Hero -->
+  <section class="section-padding bg-gradient-to-br from-dark to-dark-light">
+    <div class="container-width text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
+        Resources for <span class="text-gradient">Alaska Business Owners</span>
+      </h1>
+      <p class="text-lg text-text-muted max-w-2xl mx-auto">
+        Practical guides, local insights, and proven strategies to help your Alaskan business thrive in the digital age.
+      </p>
+    </div>
+  </section>
+
+  <!-- Blog Grid -->
+  <section class="section-padding bg-slate-50">
+    <div class="container-width">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {blogPosts.map((post) => (
+          <a
+            href={`/blog/${post.slug}`}
+            class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
+          >
+            <div class="aspect-[16/10] overflow-hidden bg-slate-200">
+              <img
+                src={post.image}
+                alt={post.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <span class="inline-block self-start text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full mb-3">
+                {post.category}
+              </span>
+              <h2 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors duration-200 line-clamp-2">
+                {post.title}
+              </h2>
+              <p class="text-sm text-slate-600 mb-4 flex-1 line-clamp-3">
+                {post.excerpt}
+              </p>
+              <div class="flex items-center justify-between text-xs text-slate-400 pt-4 border-t border-slate-100">
+                <span>{post.date}</span>
+                <span>{post.readTime}</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="section-padding bg-gradient-to-br from-primary to-primary-dark relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+
+    <div class="container-width relative z-10 text-center max-w-2xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
+        Ready to Grow Your Alaska Business?
+      </h2>
+      <p class="text-lg text-white/80 mb-8">
+        Join local business owners like Julia, Tommy, and Zach who are getting organic calls and growing their customer base--with zero extra effort.
+      </p>
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 bg-white text-primary px-8 py-3.5 rounded-xl font-bold text-base hover:bg-slate-100 transition-colors duration-200 shadow-lg shadow-black/10"
+      >
+        Get Started Today
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
