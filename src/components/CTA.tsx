@@ -43,22 +43,35 @@ export default function CTA() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <a
-              href="/contact"
+              href="/pricing"
               className="inline-flex items-center gap-2 bg-white text-primary px-8 py-3.5 rounded-xl font-bold text-base hover:bg-slate-100 transition-colors duration-200 shadow-lg shadow-black/10"
             >
               Yes, I Want More Reviews
             </a>
           </motion.div>
 
-          <motion.p
-            className="mt-6 text-sm text-white/60"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+          {/* Featured proof — David Wilcox */}
+          <motion.div
+            className="mx-auto mt-8 flex max-w-md items-center gap-4 rounded-2xl bg-white/10 backdrop-blur-sm px-5 py-4 text-left"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Anchorage-born, helping local businesses make more money.
-          </motion.p>
+            <img
+              src="/total-roof-care.jpg"
+              alt="David Wilcox from Total Roof Care"
+              className="h-14 w-14 shrink-0 rounded-xl object-cover"
+            />
+            <div>
+              <p className="text-sm font-medium text-white/90">
+                "We tripled our reviews in a single week."
+              </p>
+              <p className="mt-1 text-xs text-white/60">
+                David Wilcox · Total Roof Care · <span className="font-semibold text-white/80">16 → 48 reviews</span>
+              </p>
+            </div>
+          </motion.div>
 
           {/* Trust Badges */}
           <motion.div

@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "How It Works", href: "/#how-it-works" },
-  { label: "Pricing", href: "/#pricing" },
+  { label: "Automate", href: "/pricing" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
@@ -21,7 +21,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
@@ -34,18 +33,19 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-white/95 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
+          : "bg-white/80 backdrop-blur-sm"
       }`}
     >
       <div className="container-width">
         <nav className="flex items-center justify-between h-18 lg:h-20">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 shrink-0">
-            <span
-              className={`text-2xl font-extrabold tracking-tight transition-colors duration-300 ${
-                scrolled ? "text-gradient" : "text-white"
-              }`}
-            >
+          <a href="/" className="flex items-center gap-2.5 shrink-0">
+            <img
+              src="/logo-blue.png"
+              alt="Vortex"
+              className="h-12 w-auto"
+            />
+            <span className="text-2xl font-extrabold tracking-tight text-slate-900">
               Vortex
             </span>
           </a>
@@ -56,9 +56,7 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-primary ${
-                  scrolled ? "text-slate-700" : "text-white/90 hover:text-white"
-                }`}
+                className="text-sm font-medium text-slate-700 transition-colors duration-200 hover:text-blue-600"
               >
                 {link.label}
               </a>
@@ -67,8 +65,8 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <a
-            href="/contact"
-            className="hidden lg:inline-flex bg-primary text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary-dark transition-colors duration-200 shrink-0"
+            href="/pricing"
+            className="hidden lg:inline-flex bg-blue-600 text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-blue-700 transition-colors duration-200 shrink-0"
           >
             Start Getting Reviews
           </a>
@@ -77,9 +75,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors ${
-              scrolled ? "text-slate-700" : "text-white"
-            }`}
+            className="lg:hidden p-2 rounded-lg text-slate-700 transition-colors"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -91,7 +87,6 @@ export default function Header() {
       <AnimatePresence>
         {mobileOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -101,7 +96,6 @@ export default function Header() {
               onClick={() => setMobileOpen(false)}
             />
 
-            {/* Slide-in Panel */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -110,9 +104,16 @@ export default function Header() {
               className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white shadow-2xl lg:hidden z-50"
             >
               <div className="flex items-center justify-between px-6 h-18">
-                <span className="text-2xl font-extrabold tracking-tight text-gradient">
-                  Vortex
-                </span>
+                <div className="flex items-center gap-2">
+                  <img
+                    src="/logo-blue.png"
+                    alt="Vortex"
+                    className="h-10 w-auto"
+                  />
+                  <span className="text-xl font-extrabold tracking-tight text-slate-900">
+                    Vortex
+                  </span>
+                </div>
                 <button
                   type="button"
                   onClick={() => setMobileOpen(false)}
@@ -135,9 +136,9 @@ export default function Header() {
                   </a>
                 ))}
                 <a
-                  href="/contact"
+                  href="/pricing"
                   onClick={() => setMobileOpen(false)}
-                  className="mt-4 bg-primary text-white text-center px-5 py-3 rounded-lg font-semibold text-sm hover:bg-primary-dark transition-colors"
+                  className="mt-4 bg-blue-600 text-white text-center px-5 py-3 rounded-lg font-semibold text-sm hover:bg-blue-700 transition-colors"
                 >
                   Start Getting Reviews
                 </a>

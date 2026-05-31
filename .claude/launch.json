@@ -2,9 +2,9 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "vortex-dev",
+      "name": "vortex-preview",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--prefix", "/Users/rinaldojanjua/vortex redesign/vortex-astro"],
+      "runtimeArgs": ["run", "preview"],
       "port": 4321
     }
   ]

@@ -7,91 +7,85 @@ interface Feature {
   title: string;
   description: string;
   image?: string;
-  large?: boolean;
 }
 
 const features: Feature[] = [
   {
-    icon: <Users className="w-6 h-6" />,
+    icon: <Users className="w-5 h-5" />,
     title: "Personalized Review Requests",
-    description:
-      "Images personalized with your customers name to get their attention and increase your review conversion rate.",
+    description: "Images personalized with your customer's name to get their attention and increase review conversion rates.",
     image: "/images/personalized-review.jpg",
-    large: true,
   },
   {
-    icon: <Plug className="w-6 h-6" />,
-    title: "Seamlessly Integrates with Your Current Tools",
-    description:
-      "Our platform is compatible with your favorite CRMs and can integrate into a wide range of platforms. Connect once and never worry again!",
+    icon: <Plug className="w-5 h-5" />,
+    title: "Seamless CRM Integration",
+    description: "Compatible with Jobber, Housecall Pro, ServiceTitan, and more. Connect once and never worry again.",
     image: "/images/crm-integrations.jpg",
-    large: true,
   },
   {
-    icon: <MapPin className="w-6 h-6" />,
-    title: "Rank First On Google",
-    description:
-      "Stop Being Invisible and Start Getting Chosen on Google.",
+    icon: <MapPin className="w-5 h-5" />,
+    title: "Rank First on Google",
+    description: "More reviews = higher local ranking. Stop being invisible and start getting chosen.",
   },
   {
-    icon: <Bot className="w-6 h-6" />,
+    icon: <Bot className="w-5 h-5" />,
     title: "AI Review Responses",
-    description:
-      "We will take the burden off you, by responding to your positive reviews for you.",
+    description: "We respond to your positive reviews for you — saving you time while showing customers you care.",
   },
   {
-    icon: <Bell className="w-6 h-6" />,
-    title: "Easy Follow-ups",
-    description:
-      "If they haven't left a review we can send gentle reminders to get the reviews you deserve.",
+    icon: <Bell className="w-5 h-5" />,
+    title: "Smart Follow-Ups",
+    description: "Gentle, perfectly-timed reminders nudge customers who haven't left a review yet.",
   },
   {
-    icon: <RefreshCw className="w-6 h-6" />,
+    icon: <RefreshCw className="w-5 h-5" />,
     title: "Review Reactivation",
-    description:
-      "Turn those happy customers that 'said' they'd leave a review into real reviews.",
+    description: "Turn customers who 'said' they'd leave a review into real, published 5-star reviews.",
   },
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 24 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut", delay: i * 0.1 },
+    transition: { duration: 0.5, ease: "easeOut", delay: i * 0.08 },
   }),
 };
 
 export default function Features() {
   return (
-    <section className="section-padding bg-slate-50">
-      <div className="container-width">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <motion.h2
-            className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            Getting reviews has never been easier
-          </motion.h2>
-          <motion.p
-            className="text-lg text-slate-600"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Vortex does the hard work for you and with easy-to-use features,
-            your reputation grows on auto pilot.
-          </motion.p>
-        </div>
+    <section className="section-padding relative overflow-hidden bg-white">
+      {/* Background accent */}
+      <div className="pointer-events-none absolute inset-0 dot-grid" style={{ opacity: 0.45 }} />
+      <div
+        className="orb-3 pointer-events-none absolute top-1/2 right-0 h-[400px] w-[400px] -translate-y-1/2 rounded-full blur-3xl"
+        style={{ background: "rgba(219, 234, 254, 0.7)", animation: "orb-float-3 26s ease-in-out infinite" }}
+      />
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {features.map((feature, i) => (
+      <div className="container-width relative">
+        {/* Header */}
+        <motion.div
+          className="mx-auto mb-14 max-w-2xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="mb-3 inline-block rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-blue-600">
+            Features
+          </span>
+          <h2 className="mt-3 text-3xl font-extrabold text-slate-900 md:text-4xl">
+            Getting reviews has never been easier
+          </h2>
+          <p className="mt-4 text-lg text-slate-500">
+            Vortex does the hard work for you — your reputation grows on autopilot.
+          </p>
+        </motion.div>
+
+        {/* Image feature cards — 2-col */}
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+          {features.filter((f) => f.image).map((feature, i) => (
             <motion.div
               key={feature.title}
               custom={i}
@@ -99,31 +93,44 @@ export default function Features() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-40px" }}
-              className={`group bg-white rounded-2xl border border-slate-200 overflow-hidden transition-shadow duration-300 hover:shadow-lg ${
-                feature.large ? "md:col-span-1" : ""
-              }`}
+              className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-blue-200 hover:shadow-md"
             >
-              {feature.image && (
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={feature.image}
-                    alt={feature.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-              )}
+              <div className="w-full overflow-hidden bg-slate-100">
+                <img
+                  src={feature.image}
+                  alt={feature.title}
+                  className="w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
               <div className="p-6">
-                <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition group-hover:bg-blue-100">
                   {feature.icon}
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  {feature.description}
-                </p>
+                <h3 className="mb-2 text-base font-bold text-slate-900">{feature.title}</h3>
+                <p className="text-sm leading-relaxed text-slate-600">{feature.description}</p>
               </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Icon-only feature cards — 4-col */}
+        <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {features.filter((f) => !f.image).map((feature, i) => (
+            <motion.div
+              key={feature.title}
+              custom={i + 2}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-200 hover:shadow-md"
+            >
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition group-hover:bg-blue-100">
+                {feature.icon}
+              </div>
+              <h3 className="mb-2 text-base font-bold text-slate-900">{feature.title}</h3>
+              <p className="text-sm leading-relaxed text-slate-600">{feature.description}</p>
             </motion.div>
           ))}
         </div>

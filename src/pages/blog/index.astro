@@ -26,13 +26,22 @@ const blogPosts = [
   title="Blog | Resources for Alaska Business Owners | Vortex"
   description="Practical guides, local insights, and proven strategies to help your Alaskan business thrive in the digital age."
 >
-  <!-- Hero -->
-  <section class="section-padding bg-gradient-to-br from-dark to-dark-light">
-    <div class="container-width text-center">
-      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
-        Resources for <span class="text-gradient">Alaska Business Owners</span>
+  <!-- Hero with Alaskan photo background -->
+  <section class="relative overflow-hidden py-36 md:py-48">
+    <!-- Background image -->
+    <img
+      src="/anchorage-skyline.jpg"
+      alt="Anchorage Alaska skyline"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+    <!-- Dark overlay for readability -->
+    <div class="absolute inset-0 bg-slate-900/70"></div>
+
+    <div class="container-width relative z-10 text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4 drop-shadow-lg">
+        Resources for Alaska Business Owners
       </h1>
-      <p class="text-lg text-text-muted max-w-2xl mx-auto">
+      <p class="text-lg text-white/80 max-w-2xl mx-auto drop-shadow">
         Practical guides, local insights, and proven strategies to help your Alaskan business thrive in the digital age.
       </p>
     </div>

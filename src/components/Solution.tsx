@@ -41,25 +41,25 @@ export default function Solution() {
               </p>
             </ScrollReveal>
 
-            {/* Stat card */}
+            {/* Featured result — Gianni */}
             <ScrollReveal delay={0.2}>
               <div className="rounded-2xl border border-blue-100 bg-blue-50 p-8">
                 <span className="text-5xl font-extrabold text-blue-600 sm:text-6xl">
-                  +600%
+                  +1,050%
                 </span>
                 <p className="mt-4 text-base leading-relaxed text-slate-700">
-                  Increased reviews from 3 to 21 reviews in 2 weeks
+                  From 2 reviews at 3.3 stars to 23 reviews at 4.9 stars — now the top-ranked detailer in Eagle River. In just 3 weeks.
                 </p>
                 <div className="mt-6 flex items-center gap-3">
                   <img
-                    src="/lovable-uploads/ba0ddbd5-b17c-4b8c-ac66-d0cd1dc4b352.jpg"
-                    alt="Seth from Midnight Sun Builders"
+                    src="/canva_gianni_optimized_50.png"
+                    alt="Gianni from Polar Glow Detailing"
                     className="h-10 w-10 rounded-full object-cover"
                   />
                   <div>
-                    <p className="text-sm font-semibold text-slate-900">Seth</p>
+                    <p className="text-sm font-semibold text-slate-900">Gianni</p>
                     <p className="text-xs text-slate-500">
-                      Midnight Sun Builders
+                      Polar Glow Detailing
                     </p>
                   </div>
                 </div>

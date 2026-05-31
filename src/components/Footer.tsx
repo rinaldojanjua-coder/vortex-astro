@@ -69,7 +69,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
           <p>&copy; 2026 Vortex. All rights reserved.</p>
-          <p>Built with love in Anchorage, Alaska</p>
+          <p>Anchorage, Alaska</p>
         </div>
       </div>
     </footer>

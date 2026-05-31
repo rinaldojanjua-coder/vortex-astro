@@ -2,15 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero";
 import TrustedBy from "../components/TrustedBy";
-import PainPoints from "../components/PainPoints";
-import Solution from "../components/Solution";
-import ServicesSupported from "../components/ServicesSupported";
 import CaseStudies from "../components/CaseStudies";
-import HowItWorks from "../components/HowItWorks";
-import Features from "../components/Features";
+import Solution from "../components/Solution";
+import Comparison from "../components/Comparison";
 import VideoTestimonials from "../components/VideoTestimonials";
-import AboutMe from "../components/AboutMe";
-import Pricing from "../components/Pricing";
+import HowItWorks from "../components/HowItWorks";
 import FAQ from "../components/FAQ";
 import CTA from "../components/CTA";
 
@@ -44,15 +40,11 @@ const schema = {
 >
   <Hero client:load />
   <TrustedBy client:visible />
-  <PainPoints client:visible />
-  <Solution client:visible />
-  <ServicesSupported client:visible />
   <CaseStudies client:visible />
-  <HowItWorks client:visible />
-  <Features client:visible />
+  <Solution client:visible />
+  <Comparison client:visible />
   <VideoTestimonials client:visible />
-  <AboutMe client:visible />
-  <Pricing client:visible />
+  <HowItWorks client:visible />
   <FAQ client:visible />
   <CTA client:visible />
 </Layout>

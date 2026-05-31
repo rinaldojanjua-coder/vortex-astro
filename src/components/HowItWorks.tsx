@@ -86,7 +86,7 @@ export default function HowItWorks() {
                 className="relative"
               >
                 {/* Large step number */}
-                <span className="text-7xl font-extrabold text-primary/15 leading-none select-none">
+                <span className="text-7xl font-extrabold text-primary/40 leading-none select-none">
                   {step.number}
                 </span>
 
@@ -118,6 +118,42 @@ export default function HowItWorks() {
           })}
         </div>
 
+        {/* Featured result — Dennis */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mx-auto mb-14 max-w-2xl rounded-2xl border border-slate-700/60 bg-slate-800/80 p-6"
+        >
+          <div className="flex flex-col items-center gap-5 sm:flex-row">
+            <img
+              src="/dennis_optimized_50.jpeg"
+              alt="Dennis from The Fence Guy"
+              className="h-20 w-20 shrink-0 rounded-xl object-cover"
+            />
+            <div>
+              <div className="mb-2 flex flex-wrap items-center gap-2">
+                <span className="rounded-full bg-green-500/15 px-3 py-0.5 text-xs font-bold text-green-400">
+                  3.6★ → 4.6★
+                </span>
+                <span className="rounded-full bg-blue-500/15 px-3 py-0.5 text-xs font-bold text-blue-400">
+                  30 → 75 reviews
+                </span>
+                <span className="rounded-full bg-slate-600/50 px-3 py-0.5 text-xs font-medium text-slate-300">
+                  2 weeks
+                </span>
+              </div>
+              <p className="text-sm leading-relaxed text-slate-300">
+                "My rating jumped a full star and I more than doubled my reviews. Customers actually find me now."
+              </p>
+              <p className="mt-2 text-xs font-semibold text-white">
+                Dennis · <span className="font-normal text-slate-400">The Fence Guy</span>
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
         {/* CTA */}
         <motion.div
           className="text-center"
@@ -127,7 +163,7 @@ export default function HowItWorks() {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <a
-            href="/contact"
+            href="/pricing"
             className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3.5 rounded-xl font-semibold text-base hover:bg-primary-dark transition-colors duration-200"
           >
             Get Started in 15 Minutes

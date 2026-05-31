@@ -3,13 +3,17 @@ const clients = [
   "FWD Construction",
   "Wrench on Wheels",
   "Midnight Sun Builders",
+  "Polar Glow Detailing",
+  "Total Roof Care",
+  "The Fence Guy",
+  "Northern Security",
 ];
 
 export default function TrustedBy() {
   return (
     <section className="overflow-hidden bg-slate-900 py-12">
       <p className="mb-8 text-center text-sm font-medium uppercase tracking-widest text-slate-400">
-        Trusted by Anchorage's Top Home Service Businesses
+        Trusted by Alaska's Top Businesses
       </p>
 
       <div className="relative">

@@ -26,7 +26,7 @@ const faqs: FAQItem[] = [
   {
     question: "What if I get a negative review?",
     answer:
-      "In our entire history, we've never had a client receive a review below 4 stars. Our system is designed to encourage only satisfied customers to leave reviews, while providing a private feedback channel for anyone with concerns.",
+      "In our entire history, we've never had a client receive a review below 4 stars. Our AI-personalized approach means customers feel valued — not spammed — so the reviews that come in are genuine and overwhelmingly positive. If a negative review does come in, we alert you immediately and our AI helps you craft a professional response.",
   },
   {
     question: "Does this work with my existing CRM?",
