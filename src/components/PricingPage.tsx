@@ -120,17 +120,23 @@ function VolumeSlider() {
           transition={{ duration: 0.5 }}
           className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg sm:p-10"
         >
-          {/* Volume label */}
-          <p className="text-center text-xs font-semibold uppercase tracking-widest text-blue-600">
-            Up to {requests.toLocaleString("en-US")} review requests / mo
-          </p>
+          {/* Volume — large, prominent */}
+          <div className="text-center">
+            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">Up to</p>
+            <div className="mt-1 flex items-end justify-center gap-2">
+              <span className="font-mono text-5xl font-extrabold text-slate-900 sm:text-6xl">
+                {requests.toLocaleString("en-US")}
+              </span>
+              <span className="mb-2 text-base font-medium text-slate-500">review requests / mo</span>
+            </div>
+          </div>
 
-          {/* Price */}
-          <div className="mt-3 flex items-end justify-center gap-1.5">
-            <span className="font-mono text-5xl font-extrabold text-slate-900 sm:text-6xl">
+          {/* Price — small */}
+          <div className="mt-4 flex items-baseline justify-center gap-1">
+            <span className="font-mono text-2xl font-bold text-blue-600">
               ${price.toLocaleString("en-US")}
             </span>
-            <span className="mb-2 text-lg text-slate-400">/mo</span>
+            <span className="text-sm text-slate-400">/mo</span>
           </div>
 
           {/* Slider */}
