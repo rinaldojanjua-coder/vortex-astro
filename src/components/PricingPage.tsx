@@ -69,24 +69,23 @@ const backlogTiers = [
 ];
 
 /* ─── Sliding-scale price calculator ───────────────────────────
-   Base: up to 50 requests = $297
-   50 → 500:   +$20 per 10 requests
+   Base: up to 20 requests = $237
+   20 → 500:   +$20 per 10 requests
    500 → 1,000: +$10 per 10 requests
-   (matches the old tier anchors: 50=$297, 150=$497, 300=$797,
+   (matches the tier anchors: 50=$297, 150=$497, 300=$797,
     500=$1,197, 1000=$1,697)
 ──────────────────────────────────────────────────────────────── */
 function priceFor(requests: number): number {
-  if (requests <= 50) return 297;
-  let price = 297;
+  let price = 237;
   const capped = Math.min(requests, 500);
-  price += ((capped - 50) / 10) * 20;
+  price += ((capped - 20) / 10) * 20;
   if (requests > 500) {
     price += ((requests - 500) / 10) * 10;
   }
   return price;
 }
 
-const MIN_REQ = 50;
+const MIN_REQ = 20;
 const MAX_REQ = 1000;
 
 function VolumeSlider() {
@@ -149,7 +148,7 @@ function VolumeSlider() {
             }}
           />
           <div className="mt-3 flex justify-between text-xs font-medium text-slate-400">
-            <span>Up to 50</span>
+            <span>Up to 20</span>
             <span>Up to 1,000</span>
           </div>
 
