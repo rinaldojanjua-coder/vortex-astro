@@ -1,6 +1,6 @@
 const quickLinks = [
   { label: "How It Works", href: "/#how-it-works" },
-  { label: "Pricing", href: "/#pricing" },
+  { label: "Automate", href: "/pricing" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -25,6 +25,13 @@ export default function Footer() {
               Review automation built for Alaskan home service businesses. Get
               more 5-star reviews on autopilot.
             </p>
+            <address className="mt-5 not-italic text-slate-400 text-sm leading-relaxed">
+              12110 Business Blvd #6-328<br />
+              Anchorage, AK 99577<br />
+              <a href="tel:+19078545033" className="hover:text-white transition-colors duration-200">
+                (907) 854-5033
+              </a>
+            </address>
           </div>
 
           {/* Quick Links */}
