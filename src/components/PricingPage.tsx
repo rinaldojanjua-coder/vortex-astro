@@ -19,21 +19,21 @@ const addons = [
   {
     icon: <Globe className="h-6 w-6" />,
     name: "Multi-Platform",
-    price: "$47",
+    price: "$147",
     period: "/mo",
     description: "Split reviews across up to 5 platforms (Google, Yelp, Facebook, etc.)",
   },
   {
     icon: <MapPin className="h-6 w-6" />,
     name: "Multi-Location",
-    price: "$47",
+    price: "$147",
     period: "/mo per location",
     description: "Add extra locations to your account. Same request limits apply across all locations.",
   },
   {
     icon: <Share2 className="h-6 w-6" />,
     name: "Social Posting Package",
-    price: "$37",
+    price: "$97",
     period: "/mo",
     description: "Website embed review widget + automated review posting to social media",
   },
@@ -68,19 +68,37 @@ const backlogTiers = [
   { range: "5,000+ requests",        price: "$1.75",  discount: "82% off" },
 ];
 
-/* ─── Volume tiers ─────────────────────────────────────────── */
-const plans = [
-  { name: "Starter", range: "Under 50 review requests / mo", price: "$97" },
-  { name: "Growth",  range: "50 – 150 review requests / mo", price: "$197" },
-  { name: "Pro",     range: "150 – 300 review requests / mo", price: "$297" },
-];
+/* ─── Sliding-scale price calculator ───────────────────────────
+   Base: up to 20 requests = $237
+   20 → 500:   +$20 per 10 requests
+   500 → 1,000: +$10 per 10 requests
+   (matches the tier anchors: 50=$297, 150=$497, 300=$797,
+    500=$1,197, 1000=$1,697)
+──────────────────────────────────────────────────────────────── */
+function priceFor(requests: number): number {
+  let price = 237;
+  const capped = Math.min(requests, 500);
+  price += ((capped - 20) / 10) * 20;
+  if (requests > 500) {
+    price += ((requests - 500) / 10) * 10;
+  }
+  return price;
+}
 
-function VolumeTiers() {
+const MIN_REQ = 20;
+const MAX_REQ = 1000;
+
+function VolumeSlider() {
+  const [requests, setRequests] = useState(150);
+  const price = priceFor(requests);
+  const pct = ((requests - MIN_REQ) / (MAX_REQ - MIN_REQ)) * 100;
+  const atMax = requests >= MAX_REQ;
+
   return (
     <section className="relative overflow-hidden bg-white py-20">
       <div className="pointer-events-none absolute inset-0 dot-grid" style={{ opacity: 0.3 }} />
 
-      <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
+      <div className="relative mx-auto max-w-3xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -88,45 +106,81 @@ function VolumeTiers() {
           transition={{ duration: 0.45 }}
           className="mb-12 text-center"
         >
-          <h2 className="text-2xl font-extrabold text-slate-900">Choose Your Plan</h2>
+          <h2 className="text-2xl font-extrabold text-slate-900">Pay Only For What You Need</h2>
           <p className="mt-2 text-sm text-slate-500">
-            Same full feature set at every tier. You're only choosing how many review requests you send per month.
+            Slide to your volume. Same full feature set at every level — you only pay for the requests you actually send.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-          {plans.map((plan, i) => (
-            <motion.div
-              key={plan.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="flex flex-col rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition hover:border-blue-200 hover:shadow-md"
-            >
-              <h3 className="text-base font-bold text-slate-900">{plan.name}</h3>
-              <p className="mt-0.5 text-xs text-slate-500">{plan.range}</p>
-              <div className="mt-5 flex items-end gap-1">
-                <span className="font-mono text-4xl font-extrabold text-slate-900">{plan.price}</span>
-                <span className="mb-1.5 text-sm text-slate-400">/mo</span>
-              </div>
-              <a
-                href="/contact"
-                className="group mt-7 inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:-translate-y-0.5 hover:border-blue-300 hover:bg-blue-50"
-              >
-                Get Started
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-              </a>
-            </motion.div>
-          ))}
-        </div>
+        {/* Calculator card */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg sm:p-10"
+        >
+          {/* Volume — large, prominent */}
+          <div className="text-center">
+            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">Up to</p>
+            <div className="mt-1 flex items-end justify-center gap-2">
+              <span className="font-mono text-5xl font-extrabold text-slate-900 sm:text-6xl">
+                {requests.toLocaleString("en-US")}
+              </span>
+              <span className="mb-2 text-base font-medium text-slate-500">review requests / mo</span>
+            </div>
+          </div>
 
-        <p className="mt-8 text-center text-sm text-slate-400">
-          Sending more than 300 / mo?{" "}
-          <a href="#custom" className="font-semibold text-blue-600 hover:underline">
-            See Custom plans →
+          {/* Price — small */}
+          <div className="mt-4 flex items-baseline justify-center gap-1">
+            <span className="font-mono text-2xl font-bold text-blue-600">
+              ${price.toLocaleString("en-US")}
+            </span>
+            <span className="text-sm text-slate-400">/mo</span>
+          </div>
+
+          {/* Slider */}
+          <input
+            type="range"
+            min={MIN_REQ}
+            max={MAX_REQ}
+            step={10}
+            value={requests}
+            onChange={(e) => setRequests(Number(e.target.value))}
+            aria-label="Monthly review request volume"
+            className="volume-slider mt-10 w-full"
+            style={{
+              background: `linear-gradient(to right, #2563eb 0%, #2563eb ${pct}%, #e2e8f0 ${pct}%, #e2e8f0 100%)`,
+            }}
+          />
+          <div className="mt-3 flex justify-between text-xs font-medium text-slate-400">
+            <span>Up to 20</span>
+            <span>Up to 1,000</span>
+          </div>
+
+          {/* CTA */}
+          <a
+            href="/contact"
+            className="group mt-9 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700"
+          >
+            Get Started
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
-        </p>
+
+          {/* Above-max note */}
+          <p className="mt-4 text-center text-xs text-slate-400">
+            {atMax ? (
+              <>
+                Need more than 1,000 / mo?{" "}
+                <a href="#custom" className="font-semibold text-blue-600 hover:underline">
+                  See Custom plans →
+                </a>
+              </>
+            ) : (
+              <>Adjusts in steps of 10. Every plan includes all features above.</>
+            )}
+          </p>
+        </motion.div>
       </div>
     </section>
   );
@@ -241,7 +295,7 @@ export default function PricingPage() {
               Simple, Volume-Based Pricing
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-500">
-              Every plan includes the full suite of features below. Just pick the volume that fits your business — you only pay for what you need.
+              Every plan includes the full suite of features below. Slide to the exact volume you need — you only pay for what you use.
             </p>
           </motion.div>
         </div>
@@ -309,12 +363,12 @@ export default function PricingPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          SECTION 3 — Volume tiers
+          SECTION 3 — Sliding-scale volume calculator
       ═══════════════════════════════════════════════════════ */}
-      <VolumeTiers />
+      <VolumeSlider />
 
       {/* ═══════════════════════════════════════════════════════
-          SECTION 4 — Add-ons (below volume tiers)
+          SECTION 4 — Add-ons (below volume slider)
       ═══════════════════════════════════════════════════════ */}
       <section className="bg-slate-50 py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
