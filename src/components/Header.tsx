@@ -92,7 +92,7 @@ export default function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 top-0 bg-black/50 lg:hidden"
+              className="fixed inset-0 bg-black/60 lg:hidden z-40"
               onClick={() => setMobileOpen(false)}
             />
 
@@ -101,7 +101,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white shadow-2xl lg:hidden z-50"
+              className="fixed inset-0 w-full bg-white shadow-2xl lg:hidden z-50"
             >
               <div className="flex items-center justify-between px-6 h-18">
                 <div className="flex items-center gap-2">
