@@ -73,8 +73,23 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Credit */}
+        <div className="mt-12 pt-8 border-t border-slate-800 text-center">
+          <p className="text-lg sm:text-xl font-semibold text-white">
+            Designed in Anchorage, Alaska by{" "}
+            <a
+              href="https://webdesignanchorage.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-300 underline decoration-blue-400/40 hover:decoration-blue-300 transition-colors"
+            >
+              Anchorage Web Design
+            </a>
+          </p>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+        <div className="mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
           <p>&copy; 2026 Vortex. All rights reserved.</p>
           <p>Anchorage, Alaska</p>
         </div>
