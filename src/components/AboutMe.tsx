@@ -28,7 +28,7 @@ export default function AboutMe() {
 
             <p className="text-sm font-semibold text-slate-900 mb-1">
               Founder /{" "}
-              <span className="text-gradient">Vortex</span>
+              <span className="text-gradient">Attu Reviews</span>
             </p>
 
             <div className="inline-flex items-center gap-1.5 mt-4 text-sm text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full">

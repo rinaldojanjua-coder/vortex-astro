@@ -79,7 +79,7 @@ export default function Features() {
             Getting reviews has never been easier
           </h2>
           <p className="mt-4 text-lg text-slate-500">
-            Vortex does the hard work for you — your reputation grows on autopilot.
+            Attu Reviews does the hard work for you — your reputation grows on autopilot.
           </p>
         </motion.div>
 

@@ -41,12 +41,12 @@ export default function Header() {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2.5 shrink-0">
             <img
-              src="/logo-blue.png"
-              alt="Vortex"
+              src="/attu-mark.svg"
+              alt="Attu Reviews"
               className="h-12 w-auto"
             />
             <span className="text-2xl font-extrabold tracking-tight text-slate-900">
-              Vortex
+              Attu Reviews
             </span>
           </a>
 
@@ -106,12 +106,12 @@ export default function Header() {
               <div className="flex items-center justify-between px-6 h-18">
                 <div className="flex items-center gap-2">
                   <img
-                    src="/logo-blue.png"
-                    alt="Vortex"
+                    src="/attu-mark.svg"
+                    alt="Attu Reviews"
                     className="h-10 w-auto"
                   />
                   <span className="text-xl font-extrabold tracking-tight text-slate-900">
-                    Vortex
+                    Attu Reviews
                   </span>
                 </div>
                 <button

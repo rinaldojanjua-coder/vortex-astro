@@ -36,7 +36,7 @@ export default function Solution() {
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <p className="mb-10 text-lg leading-relaxed text-slate-600">
-                What you could achieve in just 7 days by adding Vortex to your
+                What you could achieve in just 7 days by adding Attu Reviews to your
                 business.
               </p>
             </ScrollReveal>

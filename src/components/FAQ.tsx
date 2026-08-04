@@ -128,7 +128,7 @@ export default function FAQ() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Everything you need to know about Vortex
+            Everything you need to know about Attu Reviews
           </motion.p>
         </div>
 

@@ -163,7 +163,7 @@ export default function CaseStudies() {
             Results No Other Tool Can Match
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-500">
-            These aren't cherry-picked numbers — every single Vortex client sees results like this.
+            These aren't cherry-picked numbers — every single Attu Reviews client sees results like this.
           </p>
         </motion.div>
 
@@ -212,7 +212,7 @@ export default function CaseStudies() {
           className="mt-10 text-center"
         >
           <p className="mb-4 text-lg font-semibold text-slate-800">
-            Every Vortex client sees results like this. You will too.
+            Every Attu Reviews client sees results like this. You will too.
           </p>
           <a
             href="/pricing"

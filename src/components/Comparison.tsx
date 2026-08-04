@@ -76,7 +76,7 @@ const features: Feature[] = [
 ];
 
 const columns = [
-  { key: "vortex" as const, label: "Vortex", highlight: true },
+  { key: "vortex" as const, label: "Attu Reviews", highlight: true },
   { key: "podium" as const, label: "Podium" },
   { key: "birdeye" as const, label: "Birdeye" },
   { key: "nicejob" as const, label: "NiceJob" },
@@ -101,12 +101,12 @@ const differentiators = [
   {
     icon: <MessageSquareHeart className="h-6 w-6" />,
     title: "Smart Follow-Ups",
-    desc: "Other tools send one email and hope. Vortex sends perfectly-timed, multi-channel follow-ups that adapt based on customer behavior — without being annoying.",
+    desc: "Other tools send one email and hope. Attu Reviews sends perfectly-timed, multi-channel follow-ups that adapt based on customer behavior — without being annoying.",
   },
   {
     icon: <Zap className="h-6 w-6" />,
     title: "SMS-First Approach",
-    desc: "Email open rates are 20%. SMS open rates are 98%. While competitors' requests drown in inboxes, Vortex messages get read in seconds.",
+    desc: "Email open rates are 20%. SMS open rates are 98%. While competitors' requests drown in inboxes, Attu Reviews messages get read in seconds.",
   },
   {
     icon: <BarChart3 className="h-6 w-6" />,
@@ -135,14 +135,14 @@ export default function Comparison() {
           transition={{ duration: 0.5 }}
         >
           <span className="mb-3 inline-block rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-blue-600">
-            Why Vortex Wins
+            Why Attu Reviews Wins
           </span>
           <h2 className="mt-3 text-3xl font-extrabold text-slate-900 md:text-4xl">
             Stop Sending Generic Emails<br className="hidden sm:block" /> Into the Abyss
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-500">
             Other tools blast the same boring template to every customer and pray someone clicks.
-            Vortex uses AI to make every message personal — and that's why our clients see 3–10× more reviews.
+            Attu Reviews uses AI to make every message personal — and that's why our clients see 3–10× more reviews.
           </p>
         </motion.div>
 
@@ -240,7 +240,7 @@ export default function Comparison() {
           transition={{ duration: 0.45 }}
           className="mb-8 text-center text-2xl font-extrabold text-slate-900"
         >
-          Why Vortex Gets 3–10× More Reviews
+          Why Attu Reviews Gets 3–10× More Reviews
         </motion.h3>
 
         <div className="mx-auto grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2">
@@ -277,7 +277,7 @@ export default function Comparison() {
             href="/pricing"
             className="group inline-flex items-center gap-2 rounded-full bg-blue-600 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:-translate-y-0.5 hover:bg-blue-700"
           >
-            Switch to Vortex
+            Switch to Attu Reviews
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
         </motion.div>

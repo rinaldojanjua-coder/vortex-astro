@@ -12,7 +12,7 @@ interface Props {
 
 const {
   title,
-  description = "Vortex helps Alaskan home service businesses get more 5-star Google reviews on autopilot with simple, proven review automation.",
+  description = "Attu Reviews helps Alaskan home service businesses get more 5-star Google reviews on autopilot with simple, proven review automation.",
   ogImage = "/og-default.jpg",
   schema,
 } = Astro.props;
@@ -31,7 +31,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <link rel="canonical" href={canonicalUrl} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
@@ -39,7 +39,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Vortex" />
+    <meta property="og:site_name" content="Attu Reviews" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />

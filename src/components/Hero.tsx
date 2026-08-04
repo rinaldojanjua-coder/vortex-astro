@@ -131,7 +131,7 @@ export default function Hero() {
                 <div className="overflow-hidden rounded-[1.5rem] aspect-[9/16] w-full bg-slate-900">
                   <iframe
                     src="https://www.youtube.com/embed/i0f9DzOSC2A?rel=0&modestbranding=1"
-                    title="Vortex Leads Demo"
+                    title="Attu Reviews Demo"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     className="h-full w-full"

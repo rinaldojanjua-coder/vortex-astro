@@ -19,7 +19,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <span className="text-2xl font-extrabold tracking-tight">
-              Vortex
+              Attu Reviews
             </span>
             <p className="mt-4 text-slate-400 text-sm leading-relaxed max-w-xs">
               Review automation built for Alaskan home service businesses. Get
@@ -90,7 +90,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
-          <p>&copy; 2026 Vortex. All rights reserved.</p>
+          <p>&copy; 2026 Attu Reviews. All rights reserved.</p>
           <p>Anchorage, Alaska</p>
         </div>
       </div>

@@ -7,17 +7,18 @@ import Solution from "../components/Solution";
 import Comparison from "../components/Comparison";
 import VideoTestimonials from "../components/VideoTestimonials";
 import HowItWorks from "../components/HowItWorks";
+import Team from "../components/Team";
 import FAQ from "../components/FAQ";
 import CTA from "../components/CTA";
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "Vortex",
+  "name": "Attu Reviews",
   "description": "Review automation built for Alaskan home service businesses.",
   "url": "https://vortex-leads.com",
   "telephone": "+19078545033",
-  "email": "rinaldo@vortex-leads.com",
+  "email": "info@attu.ai",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "12110 Business Blvd #6-328",
@@ -36,7 +37,7 @@ const schema = {
 ---
 
 <Layout
-  title="Vortex | Review Automation for Alaskan Businesses"
+  title="Attu Reviews | Review Automation for Alaskan Businesses"
   description="Get more 5-star Google reviews on autopilot. 20-minute setup, then never think about it again. Built by Alaskans, for Alaskans."
   schema={schema}
 >
@@ -47,6 +48,7 @@ const schema = {
   <Comparison client:visible />
   <VideoTestimonials client:visible />
   <HowItWorks client:visible />
+  <Team client:visible />
   <FAQ client:visible />
   <CTA client:visible />
 </Layout>
