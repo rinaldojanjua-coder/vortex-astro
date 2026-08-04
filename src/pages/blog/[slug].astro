@@ -467,25 +467,25 @@ const schema = {
   "@type": "Article",
   "headline": post.title,
   "description": post.excerpt,
-  "image": `https://attureviews.com${post.image}`,
+  "image": `https://www.attureviews.com${post.image}`,
   "datePublished": new Date(post.date).toISOString(),
   "author": {
     "@type": "Organization",
     "name": "Attu Reviews",
-    "url": "https://attureviews.com",
+    "url": "https://www.attureviews.com",
   },
   "publisher": {
     "@type": "Organization",
     "name": "Attu Reviews",
-    "url": "https://attureviews.com",
+    "url": "https://www.attureviews.com",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://attureviews.com/favicon.svg",
+      "url": "https://www.attureviews.com/favicon.svg",
     },
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": `https://attureviews.com/blog/${post.slug}`,
+    "@id": `https://www.attureviews.com/blog/${post.slug}`,
   },
 };
 ---

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://attureviews.com/sitemap-index.xml
+Sitemap: https://www.attureviews.com/sitemap-index.xml
