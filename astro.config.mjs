@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://vortex-leads.com',
+  site: 'https://attureviews.com',
   output: 'static',
   integrations: [react(), sitemap()],
   vite: {

@@ -12,7 +12,7 @@ interface Props {
 
 const {
   title,
-  description = "Attu Reviews helps Alaskan home service businesses get more 5-star Google reviews on autopilot with simple, proven review automation.",
+  description = "Attu Reviews helps Alaskan businesses get more 5-star Google reviews on autopilot with AI-powered, personalized review automation.",
   ogImage = "/og-default.jpg",
   schema,
 } = Astro.props;
@@ -28,17 +28,24 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#2563eb" />
     <link rel="canonical" href={canonicalUrl} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Attu Reviews — Review Automation for Alaskan Businesses" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Attu Reviews" />
 
     <!-- Twitter Card -->
@@ -46,6 +53,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content="Attu Reviews — Review Automation for Alaskan Businesses" />
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
