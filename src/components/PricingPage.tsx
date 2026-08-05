@@ -85,14 +85,17 @@ function priceFor(requests: number): number {
   seg(100, 200, 30);
   seg(200, 500, 20);
   seg(500, 1000, 10);
-  return price;
+  // Snap to the nearest price ending in 7 ($97, $127, $147, …) — the $25/10
+  // segment otherwise produces $...2 values. Anchors already end in 7, so
+  // they're unaffected.
+  return Math.round((price - 7) / 10) * 10 + 7;
 }
 
 const MIN_REQ = 20;
 const MAX_REQ = 1000;
 
 function VolumeSlider() {
-  const [requests, setRequests] = useState(150);
+  const [requests, setRequests] = useState(20);
   const price = priceFor(requests);
   const pct = ((requests - MIN_REQ) / (MAX_REQ - MIN_REQ)) * 100;
   const atMax = requests >= MAX_REQ;
