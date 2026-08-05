@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 6 76 86"  >
+  <title>Attu</title>
+  <g fill="#FFFFFF">
+    <polygon points="50,6 34,52 66,52"/>
+    <polygon points="34,52 50,72 12,92"/>
+    <polygon points="66,52 50,72 88,92"/>
+  </g>
+</svg>

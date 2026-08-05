@@ -75,6 +75,17 @@ export default function Footer() {
 
         {/* Credit */}
         <div className="mt-12 pt-8 border-t border-slate-800 text-center">
+          <a
+            href="https://attu.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mb-5 inline-flex items-center justify-center gap-2.5 text-lg sm:text-xl font-semibold text-white transition-colors hover:text-blue-300"
+          >
+            <img src="/attu-ai-mark-white.svg" alt="Attu AI" className="h-6 w-auto" />
+            <span>
+              an <span className="underline decoration-blue-400/40 group-hover:decoration-blue-300">Attu AI</span> Company
+            </span>
+          </a>
           <p className="text-lg sm:text-xl font-semibold text-white">
             Designed in Anchorage, Alaska by{" "}
             <a
