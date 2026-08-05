@@ -10,7 +10,7 @@ headers = []
 publish = "/Users/rinaldojanjua/vortex redesign/vortex-astro/dist"
 publishOrigin = "config"
 commandOrigin = "config"
-command = "npm run build"
+command = "npm run build && cp dist/sitemap-0.xml dist/sitemap.xml"
 
 [build.environment]
 

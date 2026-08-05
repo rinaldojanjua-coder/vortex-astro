@@ -1,5 +1,8 @@
 [build]
-  command = "npm run build"
+  # Flat sitemap.xml copy: GSC counts only 1 "discovered page" if you submit
+  # the sitemap-index.xml wrapper, so we publish the child as /sitemap.xml.
+  # (npm postbuild also does this; kept here so it survives script changes.)
+  command = "npm run build && cp dist/sitemap-0.xml dist/sitemap.xml"
   publish = "dist"
 
 [[redirects]]
