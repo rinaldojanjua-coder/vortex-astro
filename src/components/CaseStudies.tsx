@@ -25,7 +25,6 @@ const studies: CaseStudy[] = [
     timeframe: "4 days",
     highlight: "+48 reviews in just 4 days",
     image: "/eagle-river-automotive.jpg",
-    imagePosition: "center 55%",
   },
   {
     name: "Gianni",
