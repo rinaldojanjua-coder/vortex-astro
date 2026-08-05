@@ -29,6 +29,7 @@ export default function Header() {
   }, [mobileOpen]);
 
   return (
+    <>
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
@@ -82,9 +83,13 @@ export default function Header() {
           </button>
         </nav>
       </div>
+    </header>
 
-      {/* Mobile Overlay */}
-      <AnimatePresence>
+    {/* Mobile menu — rendered as a SIBLING of <header> (not a child) so its
+        fixed positioning is relative to the viewport. The header uses
+        backdrop-blur, and backdrop-filter creates a containing block for
+        fixed descendants, which would otherwise trap/mis-size this overlay. */}
+    <AnimatePresence>
         {mobileOpen && (
           <>
             <motion.div
@@ -147,6 +152,6 @@ export default function Header() {
           </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
