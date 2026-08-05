@@ -9,6 +9,7 @@ const clients = [
   "Total Roof Care",
   "The Fence Guy",
   "Northern Security",
+  "Eagle River Automotive",
 ];
 
 /* Constant scroll speed in px/s on every device. The keyframes translate the

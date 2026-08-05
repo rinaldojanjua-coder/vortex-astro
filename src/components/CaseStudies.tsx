@@ -16,6 +16,18 @@ interface CaseStudy {
 
 const studies: CaseStudy[] = [
   {
+    name: "Justin",
+    business: "Eagle River Automotive",
+    beforeReviews: 194,
+    afterReviews: 242,
+    beforeStars: 4.1,
+    afterStars: 4.3,
+    timeframe: "4 days",
+    highlight: "+48 reviews in just 4 days",
+    image: "/eagle-river-automotive.jpg",
+    imagePosition: "center 55%",
+  },
+  {
     name: "Gianni",
     business: "Polar Glow Detailing",
     beforeReviews: 2,
