@@ -26,8 +26,8 @@ export default function Footer() {
               more 5-star reviews on autopilot.
             </p>
             <address className="mt-5 not-italic text-slate-400 text-sm leading-relaxed">
-              12110 Business Blvd #6-328<br />
-              Anchorage, AK 99577<br />
+              1101 Gambell St, Suite 4<br />
+              Anchorage, AK 99501<br />
               <a href="tel:+19078545033" className="hover:text-white transition-colors duration-200">
                 (907) 854-5033
               </a>

@@ -83,7 +83,7 @@ function CaseCard({ study, index }: { study: CaseStudy; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-20px" }}
       transition={{ duration: 0.45, delay: index * 0.08 }}
-      className="flex w-[300px] shrink-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md snap-start"
+      className="flex w-full sm:w-[300px] shrink-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md sm:snap-start"
     >
       {/* Photo */}
       <div className="aspect-[4/3] w-full overflow-hidden bg-slate-100">
@@ -190,13 +190,13 @@ export default function CaseStudies() {
           ))}
         </motion.div>
 
-        {/* Horizontal scrolling card row */}
+        {/* Cards: vertical stack on mobile, horizontal scroll row on sm+ */}
         <div className="relative">
-          {/* Fade edges */}
-          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-slate-50 to-transparent sm:w-16" />
-          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-slate-50 to-transparent sm:w-16" />
+          {/* Fade edges (horizontal mode only) */}
+          <div className="pointer-events-none absolute left-0 top-0 z-10 hidden h-full bg-gradient-to-r from-slate-50 to-transparent sm:block sm:w-16" />
+          <div className="pointer-events-none absolute right-0 top-0 z-10 hidden h-full bg-gradient-to-l from-slate-50 to-transparent sm:block sm:w-16" />
 
-          <div className="flex gap-5 overflow-x-auto px-6 pb-4 pt-1 snap-x snap-mandatory scrollbar-hide sm:px-12 lg:px-20">
+          <div className="flex flex-col gap-5 px-6 pb-4 pt-1 sm:flex-row sm:overflow-x-auto sm:snap-x sm:snap-mandatory scrollbar-hide sm:px-12 lg:px-20">
             {studies.map((study, i) => (
               <CaseCard key={study.business} study={study} index={i} />
             ))}

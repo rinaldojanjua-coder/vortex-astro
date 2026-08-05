@@ -32,10 +32,12 @@ function VideoCard({ name, business, src, index }: VideoCardProps) {
     >
       {/* Portrait aspect ratio container */}
       <div className="relative aspect-[9/16] w-full overflow-hidden bg-slate-900">
-        {/* Video element — always visible, shows first frame naturally */}
+        {/* Video element — always visible. The #t=0.1 media fragment forces
+            the browser to seek and paint the first frame as the thumbnail
+            (mobile Safari/Chrome show nothing with bare preload="metadata"). */}
         <video
           ref={videoRef}
-          src={src}
+          src={`${src}#t=0.1`}
           preload="metadata"
           muted={!playing}
           playsInline

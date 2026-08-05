@@ -13,6 +13,11 @@
   html {
     scroll-behavior: smooth;
   }
+  /* Never allow the page itself to scroll sideways (stray absolute orbs,
+     marquees, etc.); inner containers with their own overflow still work. */
+  html, body {
+    overflow-x: clip;
+  }
   body {
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
