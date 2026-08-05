@@ -44,9 +44,13 @@ export default function TrustedBy() {
           animation: marquee 20s linear infinite;
         }
         /* The track is the same pixel length on every screen, so a fixed
-           duration reads much slower on a narrow viewport — speed it up. */
+           duration reads much slower on a narrow viewport — speed it up
+           aggressively as the viewport narrows. */
+        @media (max-width: 1024px) {
+          .animate-marquee { animation-duration: 12s; }
+        }
         @media (max-width: 640px) {
-          .animate-marquee { animation-duration: 9s; }
+          .animate-marquee { animation-duration: 5s; }
         }
       `}</style>
     </section>
