@@ -69,19 +69,22 @@ const backlogTiers = [
 ];
 
 /* ─── Sliding-scale price calculator ───────────────────────────
-   Base: up to 20 requests = $277
-   20 → 500:   +$20 per 10 requests
-   500 → 1,000: +$10 per 10 requests
-   (anchors: 50=$337, 150=$537, 300=$837,
-    500=$1,237, 1000=$1,737)
+   Base: up to 20 requests = $97
+   20 → 100:    +$25 per 10 requests   (100 = $297)
+   100 → 200:   +$30 per 10 requests   (200 = $597)
+   200 → 500:   +$20 per 10 requests   (500 = $1,197)
+   500 → 1,000: +$10 per 10 requests   (1,000 = $1,697)
 ──────────────────────────────────────────────────────────────── */
 function priceFor(requests: number): number {
-  let price = 277;
-  const capped = Math.min(requests, 500);
-  price += ((capped - 20) / 10) * 20;
-  if (requests > 500) {
-    price += ((requests - 500) / 10) * 10;
-  }
+  let price = 97;
+  const seg = (from: number, to: number, rate: number) => {
+    const inSeg = Math.min(requests, to) - from;
+    if (inSeg > 0) price += (inSeg / 10) * rate;
+  };
+  seg(20, 100, 25);
+  seg(100, 200, 30);
+  seg(200, 500, 20);
+  seg(500, 1000, 10);
   return price;
 }
 
