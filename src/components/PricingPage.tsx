@@ -69,33 +69,33 @@ const backlogTiers = [
 ];
 
 /* ─── Sliding-scale price calculator ───────────────────────────
-   Base: up to 20 requests = $97
-   20 → 100:    +$25 per 10 requests   (100 = $297)
-   100 → 200:   +$30 per 10 requests   (200 = $597)
-   200 → 500:   +$20 per 10 requests   (500 = $1,197)
-   500 → 1,000: +$10 per 10 requests   (1,000 = $1,697)
+   Base: up to 10 requests = $147
+   10 → 100:    +$25 per 10 requests
+   100 → 200:   +$30 per 10 requests
+   200 → 500:   +$20 per 10 requests
+   500 → 1,000: +$10 per 10 requests
 ──────────────────────────────────────────────────────────────── */
 function priceFor(requests: number): number {
-  let price = 97;
+  let price = 147;
   const seg = (from: number, to: number, rate: number) => {
     const inSeg = Math.min(requests, to) - from;
     if (inSeg > 0) price += (inSeg / 10) * rate;
   };
-  seg(20, 100, 25);
+  seg(10, 100, 25);
   seg(100, 200, 30);
   seg(200, 500, 20);
   seg(500, 1000, 10);
-  // Snap to the nearest price ending in 7 ($97, $127, $147, …) — the $25/10
-  // segment otherwise produces $...2 values. Anchors already end in 7, so
-  // they're unaffected.
+  // Snap to the nearest price ending in 7 ($147, $177, $207, …) — the $25/10
+  // segment otherwise produces off-7 values. The base and every 10-request
+  // step land back on a value ending in 7 after this rounding.
   return Math.round((price - 7) / 10) * 10 + 7;
 }
 
-const MIN_REQ = 20;
+const MIN_REQ = 10;
 const MAX_REQ = 1000;
 
 function VolumeSlider() {
-  const [requests, setRequests] = useState(20);
+  const [requests, setRequests] = useState(10);
   const price = priceFor(requests);
   const pct = ((requests - MIN_REQ) / (MAX_REQ - MIN_REQ)) * 100;
   const atMax = requests >= MAX_REQ;
@@ -160,7 +160,7 @@ function VolumeSlider() {
             }}
           />
           <div className="mt-3 flex justify-between text-xs font-medium text-slate-400">
-            <span>Up to 20</span>
+            <span>Up to 10</span>
             <span>Up to 1,000</span>
           </div>
 
