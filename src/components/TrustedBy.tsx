@@ -10,6 +10,7 @@ const clients = [
   "The Fence Guy",
   "Northern Security",
   "Eagle River Automotive",
+  "AnchorLine Electrical",
 ];
 
 /* Constant scroll speed in px/s on every device. The keyframes translate the
