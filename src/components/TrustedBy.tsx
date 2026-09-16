@@ -1,11 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 
+const FEATURED_CLIENT = "Roy Briley Association";
+
 const clients = [
+  "Roy Briley Association",
   "AK Gutter Gals",
   "FWD Construction",
+  "Roy Briley Association",
   "Wrench on Wheels",
   "Midnight Sun Builders",
   "Polar Glow Detailing",
+  "Roy Briley Association",
   "Total Roof Care",
   "The Fence Guy",
   "Northern Security",
@@ -56,15 +61,23 @@ export default function TrustedBy() {
           {/* Two identical copies, each carrying its own trailing gap, so the
               -50% loop point is exactly one copy width — no seam jump. */}
           {[0, 1].map((copy) => (
-            <div key={copy} className="flex shrink-0 gap-16 pr-16" aria-hidden={copy === 1}>
-              {clients.map((name) => (
-                <span
-                  key={name}
-                  className="shrink-0 text-xl font-semibold whitespace-nowrap text-slate-300"
-                >
-                  {name}
-                </span>
-              ))}
+            <div key={copy} className="flex shrink-0 items-center gap-16 pr-16" aria-hidden={copy === 1}>
+              {clients.map((name, i) => {
+                const featured = name === FEATURED_CLIENT;
+                return (
+                  <span
+                    key={`${name}-${i}`}
+                    className={
+                      featured
+                        ? "shrink-0 whitespace-nowrap rounded-full border border-blue-400/50 bg-blue-500/15 px-6 py-2 text-2xl font-extrabold text-blue-300 shadow-[0_0_22px_rgba(59,130,246,0.4)]"
+                        : "shrink-0 text-xl font-semibold whitespace-nowrap text-slate-300"
+                    }
+                  >
+                    {featured ? "★ " : ""}
+                    {name}
+                  </span>
+                );
+              })}
             </div>
           ))}
         </div>

@@ -4,8 +4,14 @@
     {
       "name": "vortex-preview",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "preview"],
-      "port": 4321
+      "runtimeArgs": ["run", "preview", "--", "--port", "4324"],
+      "port": 4324
+    },
+    {
+      "name": "vortex-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "--port", "4323"],
+      "port": 4323
     }
   ]
 }
