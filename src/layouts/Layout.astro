@@ -74,5 +74,13 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       <slot />
     </main>
     <Footer />
+
+    <!-- LeadConnector chat widget. is:inline is required: the loader reads its own data-* attributes via document.currentScript, which is null in the module script Astro would otherwise emit. -->
+    <script
+      is:inline
+      src="https://widgets.leadconnectorhq.com/loader.js"
+      data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+      data-widget-id="6af61ca090f7860d29fbc851"
+    ></script>
   </body>
 </html>
